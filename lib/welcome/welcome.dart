@@ -1,6 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:pet_app/assets/widgets/pet_selector.dart';
 import 'package:pet_app/assets/widgets/round_button.dart';
 
 class Welcome extends StatefulWidget {
@@ -11,6 +12,12 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
+
+  final List<Pet> petSelector = [
+    Pet(animal: "Dog", imgUrl: "lib/assets/images/welcome_dog_icon.png"),
+    Pet(animal: "Cat", imgUrl: "lib/assets/images/welcome_cat_icon.png"),
+  ];
+
   void guestLogin() {
     showModalBottomSheet(
       context: context,
@@ -45,17 +52,26 @@ class _WelcomeState extends State<Welcome> {
                     ],
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
 
                   // Bottom Sheet Buttons
+                  PetSelector(pets: petSelector),
                   
-                  const RoundButton(roundButtonText: "+Add Pet Details"),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  RoundButton(
+                    roundButtonText: "+Add Pet Details",
+                    onPressed: () {},
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromRGBO(255, 239, 230, 1),
                       shape: RoundedRectangleBorder(
@@ -67,7 +83,7 @@ class _WelcomeState extends State<Welcome> {
                         padding: EdgeInsets.all(8.0),
                         child: Text(
                           "No, later",
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Color.fromRGBO(7, 8, 33, 1),
                             fontSize: 16,
                           ),
@@ -171,8 +187,9 @@ class _WelcomeState extends State<Welcome> {
                   child: Column(
                     children: [
                       // Made as a Global Button
-                      const RoundButton(
+                      RoundButton(
                         roundButtonText: "Log In / Sign Up",
+                        onPressed: () {},
                       ),
                       const SizedBox(
                         height: 30,

@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 
 class RoundButton extends StatelessWidget {
   final String roundButtonText;
-  const RoundButton({super.key, required this.roundButtonText});
+  final VoidCallback onPressed;
+  const RoundButton({
+    super.key,
+    required this.roundButtonText,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromRGBO(237, 109, 78, 1),
         shape: RoundedRectangleBorder(
