@@ -1,5 +1,6 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pet_app/assets/widgets/round_button.dart';
 
 class Welcome extends StatefulWidget {
@@ -10,6 +11,78 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
+  void guestLogin() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: 400,
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Column(
+                children: [
+                  // Bottom Sheet Text
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Select your Pet Type",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        "You change the selection of pet anytime from the right top corner of the home page.",
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  // Bottom Sheet Buttons
+                  
+                  const RoundButton(roundButtonText: "+Add Pet Details"),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromRGBO(255, 239, 230, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                    ),
+                    child: const Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          "No, later",
+                          style: const TextStyle(
+                            color: Color.fromRGBO(7, 8, 33, 1),
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +180,7 @@ class _WelcomeState extends State<Welcome> {
 
                       // Guest Explore
                       GestureDetector(
-                        onTap: () {},
+                        onTap: guestLogin,
                         child: const Text(
                           "Explore as a Guest",
                           style: TextStyle(
