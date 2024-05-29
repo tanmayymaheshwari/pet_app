@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pet_app/assets/widgets/round_button.dart';
 
 class Welcome extends StatefulWidget {
@@ -9,108 +10,11 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
-  String? selectedAnimal;
-  guestLogin() {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Container(
-          height: 400,
-          child: Center(
-            child: Padding(
-              padding: EdgeInsets.all(30.0),
-              child: Column(
-                children: [
-                  // Bottom Sheet Text
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Select your Pet Type",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        "You change the selection of pet anytime from the right top corner of the home page.",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  // Bottom Sheet Buttons
-                  // Column(
-                  //   children: [
-                  //     Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //       children: [
-                  //         RadioListTile<String>(
-                  //           title: Row(
-                  //             children: [
-                  //               Image.asset(
-                  //                   'lib/assets/images/welcome_dog_icon.png',
-                  //                   width: 50,
-                  //                   height: 50), // Replace with your image path
-                  //               SizedBox(width: 10),
-                  //               Text('Dog'),
-                  //             ],
-                  //           ),
-                  //           value: 'dog',
-                  //           groupValue: selectedAnimal,
-                  //           onChanged: (value) {
-                  //             setState(() {
-                  //               selectedAnimal = value;
-                  //             });
-                  //           },
-                  //           activeColor: Colors
-                  //               .blue, // Change border color when selected
-                  //         ),
-                  //         RadioListTile<String>(
-                  //           title: Row(
-                  //             children: [
-                  //               Image.asset(
-                  //                   'lib/assets/images/welcome_cat_icon.png',
-                  //                   width: 50,
-                  //                   height: 50), // Replace with your image path
-                  //               SizedBox(width: 10),
-                  //               Text('Cat'),
-                  //             ],
-                  //           ),
-                  //           value: 'dog',
-                  //           groupValue: selectedAnimal,
-                  //           onChanged: (value) {
-                  //             setState(() {
-                  //               selectedAnimal = value;
-                  //             });
-                  //           },
-                  //           activeColor: Colors
-                  //               .blue, // Change border color when selected
-                  //         ),
-                  //         // Add more RadioListTiles for other animals as needed
-                  //       ],
-                  //     ),
-                  //   ],
-                  // ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       // STACK to add background image
       body: Stack(
         children: [
@@ -203,7 +107,7 @@ class _WelcomeState extends State<Welcome> {
 
                       // Guest Explore
                       GestureDetector(
-                        onTap: guestLogin(),
+                        onTap: () {},
                         child: const Text(
                           "Explore as a Guest",
                           style: TextStyle(
