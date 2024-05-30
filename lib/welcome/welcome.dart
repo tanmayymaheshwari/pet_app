@@ -1,8 +1,9 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:pet_app/assets/widgets/pet_selector.dart';
 import 'package:pet_app/assets/widgets/round_button.dart';
+import 'package:pet_app/login/login.dart';
+import 'package:pet_app/registration_pet_info/registration_pet_info.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
@@ -12,89 +13,166 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
-
-  final List<Pet> petSelector = [
-    Pet(animal: "Dog", imgUrl: "lib/assets/images/welcome_dog_icon.png"),
-    Pet(animal: "Cat", imgUrl: "lib/assets/images/welcome_cat_icon.png"),
-  ];
+  int selectedPet = 1; // 1 -> Dog and 2 -> Cat
+  // default is set as 1 to prevent user from entering without any input
 
   void guestLogin() {
+    // on guest login, no login is reqd and directly guided to pet selection
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return Container(
-          height: 400,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: Column(
-                children: [
-                  // Bottom Sheet Text
-                  const Column(
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setModalState) {
+            return Container(
+              height: 400,
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Select your Pet Type",
+                      // BottomSheet Text
+                      const Text(
+                        'Select your Pet Type',
                         style: TextStyle(
+                          color: Color.fromRGBO(30, 33, 68, 1),
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
                       ),
-                      SizedBox(
-                        height: 15,
+                      const SizedBox(
+                        height: 20,
                       ),
-                      Text(
-                        "You change the selection of pet anytime from the right top corner of the home page.",
+                      const Text(
+                        "You can change the selection of pet anytime from the right top corner of the home page.",
                         style: TextStyle(
-                          fontSize: 12,
+                          color: Color.fromRGBO(93, 115, 126, 1),
+                          fontSize: 14,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+
+                      // Dog or Cat Selection
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          // Dog
+                          GestureDetector(
+                            onTap: () {
+                              setModalState(() {
+                                selectedPet = 1;
+                              });
+                            },
+                            child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 18, vertical: 10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: const Color.fromRGBO(255, 239, 230, 1),
+                                  border: Border.all(
+                                    color: selectedPet ==
+                                            1 // 1 - Dog and 2 - Cat
+                                        ? const Color.fromRGBO(237, 109, 78, 1)
+                                        : Colors.transparent,
+                                    width: selectedPet == 1 ? 3 : 1,
+                                  ),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      "lib/assets/images/welcome_dog_icon.png",
+                                    ),
+                                    const SizedBox(width: 10),
+                                    const Text("Dog"),
+                                  ],
+                                )),
+                          ),
+
+                          const SizedBox(width: 20),
+
+                          // Cat
+                          GestureDetector(
+                            onTap: () {
+                              setModalState(() {
+                                selectedPet = 2;
+                              });
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 18, vertical: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: const Color.fromRGBO(255, 239, 230, 1),
+                                border: Border.all(
+                                  color: selectedPet == 2 // 1 - Dog and 2 - Cat
+                                      ? const Color.fromRGBO(237, 109, 78, 1)
+                                      : Colors.transparent,
+                                  width: selectedPet == 2 ? 3 : 1,
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                      "lib/assets/images/welcome_cat_icon.png"),
+                                  const SizedBox(width: 10),
+                                  const Text("Cat"),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 24),
+
+                      // Add Pet Details Button
+                      Center(
+                        child: RoundButton(
+                          roundButtonText: "+Add Pet Details",
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        RegistrationPetInfo(petTypeIndex: selectedPet)));
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+
+                      // No, Later Button
+                      Center(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromRGBO(255, 239, 230, 1),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24),
+                            ),
+                          ),
+                          child: const Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                "No, later",
+                                style: TextStyle(
+                                  color: Color.fromRGBO(7, 8, 33, 1),
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-
-                  // Bottom Sheet Buttons
-                  PetSelector(pets: petSelector),
-                  
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  RoundButton(
-                    roundButtonText: "+Add Pet Details",
-                    onPressed: () {},
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(255, 239, 230, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                    ),
-                    child: const Center(
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          "No, later",
-                          style: TextStyle(
-                            color: Color.fromRGBO(7, 8, 33, 1),
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
+                ),
               ),
-            ),
-          ),
+            );
+          },
         );
       },
     );
@@ -125,6 +203,7 @@ class _WelcomeState extends State<Welcome> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Title
                       const Text(
                         "Welcome to",
                         style: TextStyle(
@@ -181,7 +260,7 @@ class _WelcomeState extends State<Welcome> {
                   height: 80,
                 ),
 
-                // Buttons
+                // Login Buttons
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Column(
@@ -189,10 +268,16 @@ class _WelcomeState extends State<Welcome> {
                       // Made as a Global Button
                       RoundButton(
                         roundButtonText: "Log In / Sign Up",
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Login(),
+                              ));
+                        },
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 50,
                       ),
 
                       // Guest Explore
