@@ -66,7 +66,12 @@ class _WelcomeState extends State<Welcome> {
                             },
                             child: Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 18, vertical: 10),
+                                  horizontal: 18,
+                                  vertical: 10,
+                                ),
+                                margin: selectedPet == 1
+                                    ? const EdgeInsets.all(0)
+                                    : const EdgeInsets.symmetric(horizontal: 2),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   color: const Color.fromRGBO(255, 239, 230, 1),
@@ -100,7 +105,12 @@ class _WelcomeState extends State<Welcome> {
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 18, vertical: 10),
+                                horizontal: 18,
+                                vertical: 10,
+                              ),
+                              margin: selectedPet == 2
+                                    ? const EdgeInsets.all(0)
+                                    : const EdgeInsets.symmetric(horizontal: 2),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
                                 color: const Color.fromRGBO(255, 239, 230, 1),
@@ -133,8 +143,8 @@ class _WelcomeState extends State<Welcome> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        RegistrationPetInfo(petTypeIndex: selectedPet)));
+                                    builder: (context) => RegistrationPetInfo(
+                                        petTypeIndex: selectedPet)));
                           },
                         ),
                       ),
