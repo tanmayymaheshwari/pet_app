@@ -1,9 +1,10 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:pet_app/assets/widgets/round_button.dart';
+import 'package:pet_app/login/login.dart';
+import 'package:pet_app/global_widgets/Round_button.dart';
 import 'package:pet_app/registration_pet_info/registration_pet_info.dart';
-import 'package:pet_app/otp_verification/otp_verification.dart';
+
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
@@ -87,7 +88,7 @@ class _WelcomeState extends State<Welcome> {
                                   child: Row(
                                     children: [
                                       Image.asset(
-                                        "lib/assets/images/welcome_dog_icon.png",
+                                        "assets/welcome_dog_icon.png",
                                       ),
                                       const SizedBox(width: 10),
                                       const Text("Dog"),
@@ -125,7 +126,7 @@ class _WelcomeState extends State<Welcome> {
                                 child: Row(
                                   children: [
                                     Image.asset(
-                                        "lib/assets/images/welcome_cat_icon.png"),
+                                        "assets/welcome_cat_icon.png"),
                                     const SizedBox(width: 10),
                                     const Text("Cat"),
                                   ],
@@ -285,7 +286,7 @@ class _WelcomeState extends State<Welcome> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Verification(),
+                                  builder: (context) => Login(),
                                 ));
                           },
                         ),
