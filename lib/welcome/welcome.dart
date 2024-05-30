@@ -301,6 +301,9 @@ class _WelcomeState extends State<Welcome> {
                           ),
                         ),
                       ),
+                      const SizedBox(
+                        height: 50,
+                      ),
                     ],
                   ),
                 ),
