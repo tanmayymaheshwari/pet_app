@@ -13,10 +13,10 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
-  int selectedPet = 1; // 1 -> Dog and 2 -> Cat
+  int _selectedPet = 1; // 1 -> Dog and 2 -> Cat
   // default is set as 1 to prevent user from entering without any input
 
-  void guestLogin() {
+  void _guestLogin() {
     // on guest login, no login is reqd and directly guided to pet selection
     showModalBottomSheet(
       context: context,
@@ -62,7 +62,7 @@ class _WelcomeState extends State<Welcome> {
                             GestureDetector(
                               onTap: () {
                                 setModalState(() {
-                                  selectedPet = 1;
+                                  _selectedPet = 1;
                                 });
                               },
                               child: Container(
@@ -70,18 +70,18 @@ class _WelcomeState extends State<Welcome> {
                                     horizontal: 18,
                                     vertical: 10,
                                   ),
-                                  margin: selectedPet == 1
+                                  margin: _selectedPet == 1
                                       ? const EdgeInsets.all(0)
                                       : const EdgeInsets.symmetric(horizontal: 2),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
                                     color: const Color.fromRGBO(255, 239, 230, 1),
                                     border: Border.all(
-                                      color: selectedPet ==
+                                      color: _selectedPet ==
                                               1 // 1 - Dog and 2 - Cat
                                           ? const Color.fromRGBO(237, 109, 78, 1)
                                           : Colors.transparent,
-                                      width: selectedPet == 1 ? 3 : 1,
+                                      width: _selectedPet == 1 ? 3 : 1,
                                     ),
                                   ),
                                   child: Row(
@@ -101,7 +101,7 @@ class _WelcomeState extends State<Welcome> {
                             GestureDetector(
                               onTap: () {
                                 setModalState(() {
-                                  selectedPet = 2;
+                                  _selectedPet = 2;
                                 });
                               },
                               child: Container(
@@ -109,17 +109,17 @@ class _WelcomeState extends State<Welcome> {
                                   horizontal: 18,
                                   vertical: 10,
                                 ),
-                                margin: selectedPet == 2
+                                margin: _selectedPet == 2
                                       ? const EdgeInsets.all(0)
                                       : const EdgeInsets.symmetric(horizontal: 2),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   color: const Color.fromRGBO(255, 239, 230, 1),
                                   border: Border.all(
-                                    color: selectedPet == 2 // 1 - Dog and 2 - Cat
+                                    color: _selectedPet == 2 
                                         ? const Color.fromRGBO(237, 109, 78, 1)
                                         : Colors.transparent,
-                                    width: selectedPet == 2 ? 3 : 1,
+                                    width: _selectedPet == 2 ? 3 : 1,
                                   ),
                                 ),
                                 child: Row(
@@ -145,7 +145,7 @@ class _WelcomeState extends State<Welcome> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => RegistrationPetInfo(
-                                          petTypeIndex: selectedPet)));
+                                          petTypeIndex: _selectedPet)));
                             },
                           ),
                         ),
@@ -295,7 +295,7 @@ class _WelcomeState extends State<Welcome> {
         
                         // Guest Explore
                         GestureDetector(
-                          onTap: guestLogin,
+                          onTap: _guestLogin,
                           child: const Text(
                             "Explore as a Guest",
                             style: TextStyle(
