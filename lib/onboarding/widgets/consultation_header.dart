@@ -38,12 +38,11 @@ class ConsultationHeader extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 4),
           Text(
             subtitle,
             style: const TextStyle(
               color: Color.fromRGBO(94, 92, 92, 1),
-              fontSize: 11,
+              fontSize: 12,
               fontWeight: FontWeight.w300,
             ),
           ),

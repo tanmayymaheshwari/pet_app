@@ -42,10 +42,10 @@ class BestSeller extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10),
           child: Row(
             children: [
-              BestSellerTile(),
-              BestSellerTile(),
-              BestSellerTile(),
-              BestSellerTile(),
+              BestSellerTile(name: "RC Kitten",imgUrl : "assets/best_seller_1.png",price:20.99),
+              BestSellerTile(name: "RC Kitten",imgUrl : "assets/best_seller_2.png",price:20.99),
+              BestSellerTile(name: "RC Kitten",imgUrl : "assets/best_seller_1.png",price:20.99),
+              BestSellerTile(name: "RC Kitten",imgUrl : "assets/best_seller_2.png",price:20.99),
             ],
           ),
         ),

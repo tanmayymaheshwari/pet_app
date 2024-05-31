@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ServiceTile extends StatelessWidget {
-  const ServiceTile({super.key});
+  final String name;
+  final String imgUrl;
+  const ServiceTile({super.key, required this.name, required this.imgUrl});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(0),
+    return GestureDetector(
+      onTap: () {}, // add functionality
       child: Card(
         shadowColor: Colors.transparent,
         color: Colors.transparent,
@@ -24,7 +26,7 @@ class ServiceTile extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Image.asset("assets/welcome_dog_icon.png"),
+                child: Image.asset(imgUrl),
               ),
             ),
             Container(
@@ -37,10 +39,10 @@ class ServiceTile extends StatelessWidget {
                   bottomRight: Radius.circular(12.0),
                 ),
               ),
-              child: const Center(
+              child: Center(
                 child: Text(
-                  "Pet Shop",
-                  style: TextStyle(
+                  name,
+                  style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                   ),

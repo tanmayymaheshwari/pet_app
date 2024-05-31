@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/onboarding/widgets/best_seller.dart';
 import 'package:pet_app/onboarding/widgets/home_consultation.dart';
 import 'package:pet_app/onboarding/widgets/onboarding_image.dart';
+import 'package:pet_app/onboarding/widgets/onboarding_searchbar.dart';
 import 'package:pet_app/onboarding/widgets/select_a_service.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -55,12 +56,12 @@ class _OnBoardingState extends State<OnBoarding> {
         // ),
       ),
 
-      body: const SingleChildScrollView( //remove const
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            OnboardingImage(imgUrl: "assets/onboarding_image_1.png"), // supposed to be an?
-            // Searchbar
+            OnboardingImage(imgUrl: "assets/onboarding_image_1.png"), // supposed to be an ad?
+            OnboardingSearchbar(),
             SelectAService(),
             BestSeller(),
             HomeConsultation(),

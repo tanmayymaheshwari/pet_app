@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class BestSellerTile extends StatelessWidget {
-  const BestSellerTile({super.key});
+  final String imgUrl;
+  final String name;
+  final double price;
+  const BestSellerTile(
+      {super.key,
+      required this.imgUrl,
+      required this.name,
+      required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -10,38 +17,43 @@ class BestSellerTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(4),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 6.0,
-              offset: Offset(0, -1), // Shadow position
-            ),
-          ],
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 6.0,
+            offset: Offset(0, -1),
+          ),
+        ],
       ),
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 12, right: 12, top: 4),
-            child: Image.asset("assets/best_seller.png"), // variable
+            padding: const EdgeInsets.only(left: 12, right: 12, top: 8),
+            child: SizedBox(
+              width: 80,
+              height: 100,
+              child: Image.asset(imgUrl, fit: BoxFit.cover),
+            ), // img path
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "RC Kitten", // variable
-                      style: TextStyle(
+                      name, // product name
+                      style: const TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     Text(
-                      "\$20,99", // variable
-                      style: TextStyle(
+                      "\$${price}", // product price
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
                       ),

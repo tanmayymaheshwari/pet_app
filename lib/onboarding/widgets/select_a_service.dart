@@ -22,15 +22,15 @@ class SelectAService extends StatelessWidget {
         ),
         Row(
           children: [
-            Expanded(child: ServiceTile()),
-            Expanded(child: ServiceTile()),
+            Expanded(child: ServiceTile(name:"Grooming", imgUrl:"assets/grooming_icon.png",)),
+            Expanded(child: ServiceTile(name:"Pet Shop", imgUrl:"assets/pet_shop_icon.png",)),
           ],
         ),
         SizedBox(height: 20),
         Row(
           children: [
-            Expanded(child: ServiceTile()),
-            Expanded(child: ServiceTile()),
+            Expanded(child: ServiceTile(name:"Treatment", imgUrl:"assets/treatment_icon.png",)),
+            Expanded(child: ServiceTile(name:"Lab Test", imgUrl:"assets/lab_test_icon.png",)),
           ],
         ),
         SizedBox(height: 20),
