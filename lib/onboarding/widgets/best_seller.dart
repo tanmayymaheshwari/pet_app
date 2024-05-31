@@ -39,7 +39,7 @@ class BestSeller extends StatelessWidget {
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(left: 10, bottom: 4),
           child: Row(
             children: [
               BestSellerTile(name: "RC Kitten",imgUrl : "assets/best_seller_1.png",price:20.99),

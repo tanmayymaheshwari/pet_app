@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 class ConsultationHeader extends StatelessWidget {
   final String title;
   final String subtitle;
+  final VoidCallback onPressed;
   const ConsultationHeader(
-      {super.key, required this.title, required this.subtitle});
+      {super.key, required this.title, required this.subtitle, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.only(left:14, right: 14),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,7 +27,7 @@ class ConsultationHeader extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {}, // add functionality
+                onPressed: onPressed,
                 child: const Text(
                   "View All",
                   style: TextStyle(

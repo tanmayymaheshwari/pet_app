@@ -14,19 +14,23 @@ class _HomeConsultationState extends State<HomeConsultation> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const ConsultationHeader(
+        ConsultationHeader(
           title: "We Provide At Home Consultation",
           subtitle: "Get 10% Offer on your First Consultation",
+          onPressed: () {},
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              DoctorTile(),
-              DoctorTile(),
-              DoctorTile(),
-              DoctorTile(),
-            ],
+        Padding(
+          padding: const EdgeInsets.only(top: 12.0, bottom: 4),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                DoctorTile(),
+                DoctorTile(),
+                DoctorTile(),
+                DoctorTile(),
+              ],
+            ),
           ),
         )
       ],

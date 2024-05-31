@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pet_app/onboarding/widgets/behaviour_consultation.dart';
 import 'package:pet_app/onboarding/widgets/best_seller.dart';
+import 'package:pet_app/onboarding/widgets/condition_consultation.dart';
+import 'package:pet_app/onboarding/widgets/grooming_package.dart';
 import 'package:pet_app/onboarding/widgets/home_consultation.dart';
 import 'package:pet_app/onboarding/widgets/onboarding_image.dart';
 import 'package:pet_app/onboarding/widgets/onboarding_searchbar.dart';
@@ -64,8 +67,14 @@ class _OnBoardingState extends State<OnBoarding> {
             OnboardingSearchbar(),
             SelectAService(),
             BestSeller(),
+            
             HomeConsultation(),
             OnboardingImage(imgUrl: "assets/onboarding_image_2.png"),
+
+            ConditionConsultation(),
+            GroomingPackage(),
+
+            BehaviourConsultation(),
 
             OnboardingImage(imgUrl: "assets/onboarding_image_3.png"),
             OnboardingImage(imgUrl: "assets/onboarding_image_4.png"),
