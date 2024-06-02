@@ -29,39 +29,43 @@ class _BehaviourConsultationState extends State<BehaviourConsultation> {
               "Get up to 15% off on your first Consultation\nBased on Conditions",
           onPressed: () {},
         ),
-        Wrap(
-          spacing: 8.0,
-          runSpacing: 8.0,
-          children: List.generate(_labels.length, (index) {
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  if (_selectedIndex == index) {
-                    _selectedIndex = null;
-                  } else {
-                    _selectedIndex = index;
-                  }
-                });
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: _selectedIndex == index
-                      ? Color.fromRGBO(237, 109, 78, 1)
-                      : Color.fromRGBO(255, 239, 230, 1),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                child: Text(
-                  _labels[index],
-                  style: TextStyle(
-                    color:
-                        _selectedIndex == index ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.w500,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          child: Wrap(
+            spacing: 8.0,
+            runSpacing: 8.0,
+            children: List.generate(_labels.length, (index) {
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    if (_selectedIndex == index) {
+                      _selectedIndex = null;
+                    } else {
+                      _selectedIndex = index;
+                    }
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: _selectedIndex == index
+                        ? Color.fromRGBO(237, 109, 78, 1)
+                        : Color.fromRGBO(255, 239, 230, 1),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                  child: Text(
+                    _labels[index],
+                    style: TextStyle(
+                      color:
+                          _selectedIndex == index ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                    ),
                   ),
                 ),
-              ),
-            );
-          }),
+              );
+            }),
+          ),
         ),
       ],
     );

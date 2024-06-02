@@ -7,6 +7,7 @@ import 'package:pet_app/onboarding/widgets/home_consultation.dart';
 import 'package:pet_app/onboarding/widgets/onboarding_image.dart';
 import 'package:pet_app/onboarding/widgets/onboarding_searchbar.dart';
 import 'package:pet_app/onboarding/widgets/select_a_service.dart';
+import 'package:pet_app/onboarding/widgets/symptom_consultation.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -74,6 +75,7 @@ class _OnBoardingState extends State<OnBoarding> {
             ConditionConsultation(),
             GroomingPackage(),
 
+            SymptomConsultation(),
             BehaviourConsultation(),
 
             OnboardingImage(imgUrl: "assets/onboarding_image_3.png"),

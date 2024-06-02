@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/onboarding/widgets/consultation_header.dart';
 
-class ConditionConsultation extends StatefulWidget {
-  const ConditionConsultation({super.key});
+class SymptomConsultation extends StatefulWidget {
+  const SymptomConsultation({super.key});
 
   @override
-  State<ConditionConsultation> createState() => _ConditionConsultationState();
+  State<SymptomConsultation> createState() => _SymptomConsultationState();
 }
 
-class _ConditionConsultationState extends State<ConditionConsultation> {
+class _SymptomConsultationState extends State<SymptomConsultation> {
   int? _selectedIndex;
 
   final List<String> _labels = [
-    'Allergies',
-    'Arthritis',
-    'Diarrhea',
-    'Dental Disease',
-    'Ear Conditions',
-    'Fractures',
-    'Insect Bites'
+    'Runny Nose',
+    'Sneezes',
+    'Screeching',
+    'Fever',
+    'Watery Eyes',
+    'Lethargy',
+    'Vomiting',
   ];
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ConsultationHeader(
-          title: "Consultation Based on Conditions",
+          title: "Consultation Based on Symptoms",
           subtitle:
               "Get up to 15% off on your first Consultation\nBased on Conditions",
           onPressed: () {},
