@@ -15,6 +15,7 @@ class _OnboardingSearchbarState extends State<OnboardingSearchbar> {
   }
 
   void _performSearch() {
+    // ignore: unused_local_variable
     String searchText = _searchController.text;
     // Add functionality to search in the database with searchText
   }

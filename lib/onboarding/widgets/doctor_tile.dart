@@ -2,26 +2,53 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/onboarding/widgets/rect_button.dart';
 
 class DoctorTile extends StatelessWidget {
-  const DoctorTile({super.key});
+
+  final String imgUrl;
+  final String doctorName;
+  final String clinicName;
+  final int experience;
+  final double rating;
+  final int patientCount;
+  final String availableTime;
+
+  const DoctorTile({
+    super.key,
+    required this.imgUrl,
+    required this.doctorName,
+    required this.clinicName,
+    required this.experience,
+    required this.rating,
+    required this.patientCount,
+    required this.availableTime, 
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 12),
-      child: Card(
-        color: Colors.white,
-        elevation: 5,
+      padding: const EdgeInsets.only(left: 12, bottom: 10),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
         child: Padding(
-          padding: const EdgeInsets.all(12), // Adding padding inside the Card
+          padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  Image.asset(
-                    "assets/doctor.jpg",
-                    fit: BoxFit.cover,
-                  ),
+                  
+                  // Doctor Photo
+                  Image.asset(imgUrl, fit: BoxFit.cover),
                   const SizedBox(width: 12),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,8 +57,8 @@ class DoctorTile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Dr. Shruti Kedia", // Variable doc name
-                            style: TextStyle(
+                            doctorName,
+                            style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
                             ),
@@ -42,20 +69,24 @@ class DoctorTile extends StatelessWidget {
                               Icons.favorite_border_outlined,
                               color: Color.fromRGBO(237, 109, 78, 1),
                             ),
-                            onTap: () {}, // add functionality
+                            onTap: () {}, // Add functionality
                           ),
                         ],
                       ),
                       const SizedBox(height: 4),
+
+                      // Clinic Names
                       Text(
-                        "Pet101 Clinic, Hyderabad", // Variable clinic name
-                        style: TextStyle(
+                        clinicName,
+                        style: const TextStyle(
                           fontSize: 12,
                           color: Color.fromRGBO(237, 109, 78, 1),
                         ),
                       ),
+
+                      // Experience
                       Text(
-                        "X Years Experience", // Variable experience
+                        "$experience Years Experience",
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.grey[500],
@@ -64,26 +95,30 @@ class DoctorTile extends StatelessWidget {
                       const SizedBox(height: 6),
                       Row(
                         children: [
+
+                          // Rating
                           const Icon(
                             Icons.star,
                             color: Color.fromRGBO(237, 109, 78, 1),
                             size: 14,
                           ),
                           Text(
-                            "4.5", // Variable rating
+                            "$rating",
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey[500],
                             ),
                           ),
                           const SizedBox(width: 12),
+
+                          // Patients
                           const Icon(
                             Icons.circle,
                             color: Color.fromRGBO(237, 109, 78, 1),
                             size: 14,
                           ),
                           Text(
-                            "20 Patient Stories", // Variable patient number
+                            " $patientCount Patient Stories",
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey[500],
@@ -95,9 +130,9 @@ class DoctorTile extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,8 +145,10 @@ class DoctorTile extends StatelessWidget {
                           color: Color.fromRGBO(237, 109, 78, 1),
                         ),
                       ),
+
+                      // Availibility
                       Text(
-                        "10:00 AM tomorrow", // variable time
+                        availableTime,
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
@@ -121,9 +158,11 @@ class DoctorTile extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(width: 40),
+
+                  // BUG : spacebetween not working and hence this is used temporariliy
                   RectButton(
                     RectButtonText: "Book Now",
-                    onPressed: () {},
+                    onPressed: () {}, // add functionality
                   ),
                 ],
               ),
