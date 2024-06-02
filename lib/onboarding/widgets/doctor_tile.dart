@@ -25,7 +25,7 @@ class DoctorTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 12, bottom: 10),
+      padding: const EdgeInsets.only(left: 12, bottom: 10, top: 4),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,

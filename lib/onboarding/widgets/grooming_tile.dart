@@ -7,17 +7,19 @@ class GroomingTile extends StatelessWidget {
   final double rating;
   final int reviews;
   final String duration;
+  final List<String> services;
   final int price;
 
   const GroomingTile({
-    Key? key,
+    super.key,
     required this.serviceName,
     required this.discount,
     required this.rating,
     required this.reviews,
     required this.duration,
+    required this.services,
     required this.price,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,6 @@ class GroomingTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-
                         // BUG : SpaceBetween again not working
                         // Exapnded and Flexible cause the UI to vanish
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,21 +143,21 @@ class GroomingTile extends StatelessWidget {
                 style: TextStyle(color: Colors.grey[200]),
               ),
               const SizedBox(height: 10),
+
+              // Services
               Row(
-                children: [
-                  Text(
-                    " Body Spray |",
-                    style: TextStyle(color: Colors.grey[700], fontSize: 12),
-                  ),
-                  Text(
-                    " Medicated Bath |",
-                    style: TextStyle(color: Colors.grey[700], fontSize: 12),
-                  ),
-                  Text(
-                    " Teeth Brushing ",
-                    style: TextStyle(color: Colors.grey[700], fontSize: 12),
-                  ),
-                ],
+                children: services.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final service = entry.value;
+                  final isLast = index == services.length - 1;
+                  return Text(
+                    isLast ? " $service" : " $service |",
+                    style: TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: 12,
+                    ),
+                  );
+                }).toList(),
               ),
               const SizedBox(height: 20),
               Row(

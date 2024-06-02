@@ -8,7 +8,7 @@ class OnboardingImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         child: Image.asset(
           imgUrl,
           fit: BoxFit.cover,

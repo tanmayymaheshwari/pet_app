@@ -4,6 +4,7 @@ import 'package:pet_app/onboarding/widgets/best_seller.dart';
 import 'package:pet_app/onboarding/widgets/condition_consultation.dart';
 import 'package:pet_app/onboarding/widgets/grooming_package.dart';
 import 'package:pet_app/onboarding/widgets/home_consultation.dart';
+import 'package:pet_app/onboarding/widgets/lab_test.dart';
 import 'package:pet_app/onboarding/widgets/onboarding_image.dart';
 import 'package:pet_app/onboarding/widgets/onboarding_searchbar.dart';
 import 'package:pet_app/onboarding/widgets/select_a_service.dart';
@@ -64,22 +65,27 @@ class _OnBoardingState extends State<OnBoarding> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             const OnboardingImage(imgUrl: "assets/onboarding_image_1.png"), // supposed to be an ad?
+            
             OnboardingSearchbar(),
             const SelectAService(),
             BestSeller(),
-            
             HomeConsultation(),
+
             const OnboardingImage(imgUrl: "assets/onboarding_image_2.png"),
 
             ConditionConsultation(),
             GroomingPackage(),
-
             SymptomConsultation(),
-            BehaviourConsultation(),
 
             OnboardingImage(imgUrl: "assets/onboarding_image_3.png"),
+
+            LabTest(),
+            BehaviourConsultation(),
+
             OnboardingImage(imgUrl: "assets/onboarding_image_4.png"),
+            OnboardingImage(imgUrl: "assets/onboarding_image_5.png"),
             
           ],
         ),
@@ -112,6 +118,9 @@ class _OnBoardingState extends State<OnBoarding> {
                 icon: Icon(Icons.home),
                 label: 'Home',
               ),
+              // BUG : 3 items are fine
+              // 4 items cause the background colour to change  
+
               // BottomNavigationBarItem(
               //   icon: Icon(Icons.access_time),
               //   label: "Orders",

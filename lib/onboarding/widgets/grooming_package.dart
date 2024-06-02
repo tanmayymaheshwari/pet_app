@@ -3,14 +3,13 @@ import 'package:pet_app/onboarding/widgets/consultation_header.dart';
 import 'package:pet_app/onboarding/widgets/grooming_tile.dart';
 
 class GroomingPackage extends StatefulWidget {
-  const GroomingPackage({Key? key}) : super(key: key);
+  const GroomingPackage({super.key});
 
   @override
   State<GroomingPackage> createState() => _GroomingPackageState();
 }
 
 class _GroomingPackageState extends State<GroomingPackage> {
-  // List of grooming packages with their details
   final List<Map<String, dynamic>> groomingPackages = [
     {
       'serviceName': 'Spa Service',
@@ -18,6 +17,7 @@ class _GroomingPackageState extends State<GroomingPackage> {
       'rating': 4.5,
       'reviews': 20,
       'duration': '1hr 45mins',
+      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing"],
       'price': 1120,
     },
     {
@@ -26,6 +26,7 @@ class _GroomingPackageState extends State<GroomingPackage> {
       'rating': 4.2,
       'reviews': 28,
       'duration': '1hr 15mins',
+      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing"],
       'price': 1080,
     },
     {
@@ -34,6 +35,7 @@ class _GroomingPackageState extends State<GroomingPackage> {
       'rating': 4.5,
       'reviews': 20,
       'duration': '1hr 45mins',
+      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing"],
       'price': 1120,
     },
     {
@@ -42,6 +44,7 @@ class _GroomingPackageState extends State<GroomingPackage> {
       'rating': 4.2,
       'reviews': 28,
       'duration': '1hr 15mins',
+      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing"],
       'price': 1080,
     },
   ];
@@ -68,7 +71,8 @@ class _GroomingPackageState extends State<GroomingPackage> {
                   rating: package['rating'],
                   reviews: package['reviews'],
                   duration: package['duration'],
-                  price: package['price'],
+                  services: package['services'],
+                  price: package['price'], 
                 );
               }),
             ),

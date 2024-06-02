@@ -31,7 +31,7 @@ class _CommonConsultationState extends State<CommonConsultation> {
           onPressed: () {},
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 14),
           child: Wrap(
             spacing: 8.0,
             runSpacing: 8.0,
