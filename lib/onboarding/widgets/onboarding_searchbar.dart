@@ -6,37 +6,64 @@ class OnboardingSearchbar extends StatefulWidget {
 }
 
 class _OnboardingSearchbarState extends State<OnboardingSearchbar> {
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _performSearch() {
+    String searchText = _searchController.text;
+    // Add functionality to search in the database with searchText
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromRGBO(255, 249, 246, 1),
+          color: const Color.fromRGBO(255, 249, 246, 1),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: Color.fromRGBO(237, 109, 78, 0.2),
-          )
+            color: const Color.fromRGBO(237, 109, 78, 0.2),
+          ),
         ),
-        padding: EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Row(
           children: [
-            const Icon(
-              Icons.search,
-              color: Color.fromRGBO(237, 109, 78, 1),
+            // search icon
+            IconButton(
+              icon: const Icon(
+                Icons.search,
+                color: Color.fromRGBO(237, 109, 78, 1),
+              ),
+              onPressed: () {
+                _performSearch();
+              },
             ),
             const SizedBox(width: 8),
+
+            // text field
             Expanded(
               child: TextField(
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
+                controller: _searchController,
+                style: const TextStyle(color: Color.fromRGBO(123, 68, 54, 1)),
+                decoration: const InputDecoration(
                   hintText: 'Search for toys, grooming ...',
                   hintStyle: TextStyle(
                       color: Color.fromRGBO(151, 151, 151, 1), fontSize: 12),
                   border: InputBorder.none,
                 ),
+                onSubmitted: (value) {
+                  _performSearch();
+                },
               ),
             ),
+
+            // search with photo?
             const SizedBox(width: 8),
             IconButton(
               onPressed: () {}, // add functionality

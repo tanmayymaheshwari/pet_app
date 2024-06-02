@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:pet_app/onboarding/widgets/best_seller_tile.dart';
 
 class BestSeller extends StatelessWidget {
   const BestSeller({super.key});
+
+  final List<Map<String, dynamic>> bestSellers = const [
+    {"name": "RC Kitten", "imgUrl": "assets/best_seller_1.png", "price": 20.99},
+    {"name": "RC Kitten", "imgUrl": "assets/best_seller_2.png", "price": 18.99},
+    {"name": "RC Kitten", "imgUrl": "assets/best_seller_1.png", "price": 20.99},
+    {"name": "RC Kitten", "imgUrl": "assets/best_seller_2.png", "price": 18.99},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +18,8 @@ class BestSeller extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 14.0, right: 14, bottom: 8),
           child: Row(
+
+            // Bestseller Header
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
@@ -23,7 +31,7 @@ class BestSeller extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {}, // add functionality
                 child: const Text(
                   "View All",
                   style: TextStyle(
@@ -33,20 +41,22 @@ class BestSeller extends StatelessWidget {
                   ),
                 ),
               ),
-              
             ],
           ),
         ),
+
+        // Bestseller Item Display
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           padding: const EdgeInsets.only(left: 10, bottom: 4),
           child: Row(
-            children: [
-              BestSellerTile(name: "RC Kitten",imgUrl : "assets/best_seller_1.png",price:20.99),
-              BestSellerTile(name: "RC Kitten",imgUrl : "assets/best_seller_2.png",price:20.99),
-              BestSellerTile(name: "RC Kitten",imgUrl : "assets/best_seller_1.png",price:20.99),
-              BestSellerTile(name: "RC Kitten",imgUrl : "assets/best_seller_2.png",price:20.99),
-            ],
+            children: List.generate(bestSellers.length, (index) {
+              return BestSellerTile(
+                name: bestSellers[index]['name'],
+                imgUrl: bestSellers[index]['imgUrl'],
+                price: bestSellers[index]['price'],
+              );
+            }),
           ),
         ),
         const SizedBox(height: 10)

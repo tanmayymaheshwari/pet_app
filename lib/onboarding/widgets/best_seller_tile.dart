@@ -33,7 +33,7 @@ class BestSellerTile extends StatelessWidget {
               width: 80,
               height: 100,
               child: Image.asset(imgUrl, fit: BoxFit.cover),
-            ), // img path
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

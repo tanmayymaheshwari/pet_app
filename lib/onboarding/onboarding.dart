@@ -28,9 +28,9 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(255, 254, 253, 1),
+      backgroundColor: const Color.fromRGBO(255, 254, 253, 1),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 234, 113, 113),
+        backgroundColor: const Color.fromARGB(255, 234, 113, 113),
         // Uncomment and update the following section if needed
         // title: Row(
         //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,10 +64,10 @@ class _OnBoardingState extends State<OnBoarding> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            OnboardingImage(imgUrl: "assets/onboarding_image_1.png"), // supposed to be an ad?
+            const OnboardingImage(imgUrl: "assets/onboarding_image_1.png"), // supposed to be an ad?
             OnboardingSearchbar(),
-            SelectAService(),
-            BestSeller(),
+            const SelectAService(),
+            const BestSeller(),
             
             HomeConsultation(),
             OnboardingImage(imgUrl: "assets/onboarding_image_2.png"),

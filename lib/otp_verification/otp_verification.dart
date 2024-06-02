@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/global_widgets/Round_button.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
 class Verification extends StatefulWidget {
   const Verification({super.key});
@@ -8,16 +9,23 @@ class Verification extends StatefulWidget {
   State<Verification> createState() => _VerificationState();
 }
 
-class _VerificationState extends State<Verification> {
+class _VerificationState extends State<Verification> with CodeAutoFill {
 
-  // to manage otp blocks
+  // to manage OTP blocks
   final List<TextEditingController> _otpControllers =
       List.generate(4, (index) => TextEditingController());
   final List<FocusNode> _otpFocusNodes =
       List.generate(4, (index) => FocusNode());
 
   @override
+  void initState() {
+    super.initState();
+    listenForCode();
+  }
+
+  @override
   void dispose() {
+    cancel();
     for (var controller in _otpControllers) {
       controller.dispose();
     }
@@ -27,12 +35,23 @@ class _VerificationState extends State<Verification> {
     super.dispose();
   }
 
+  // automatically fills OTP 
+  // VERIFY IF THIS WORKS
+  @override
+  void codeUpdated() {
+    if (code != null && code!.length == 4) {
+      for (int i = 0; i < code!.length; i++) {
+        _otpControllers[i].text = code![i];
+      }
+    }
+  }
+
+  // OTP Block UI/UX
   void _handleOtpChange(String value, int index) {
     if (value.length == 1 && index < 3) {
       _otpFocusNodes[index].unfocus();
       FocusScope.of(context).requestFocus(_otpFocusNodes[index + 1]);
-    }
-    else if(value.isEmpty && index>0) {
+    } else if (value.isEmpty && index > 0) {
       _otpFocusNodes[index].unfocus();
       FocusScope.of(context).requestFocus(_otpFocusNodes[index - 1]);
     }
@@ -48,7 +67,7 @@ class _VerificationState extends State<Verification> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(height: 30),
-        
+
               // Heading
               const Text(
                 "Verification",
@@ -59,7 +78,7 @@ class _VerificationState extends State<Verification> {
                 ),
               ),
               const SizedBox(height: 20),
-        
+
               // Subtext
               const Text(
                 "We have sent an otp to verify your account, Please check your mobile number 999-999-9999",
@@ -70,42 +89,41 @@ class _VerificationState extends State<Verification> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 40),
-        
+
               // OTP Blocks
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: List.generate( 4,(index) {
-                    return SizedBox(
-                      width: 40,
-                      child: TextFormField(
-                        maxLength: 1,
-                        controller: _otpControllers[index],
-                        focusNode: _otpFocusNodes[index],
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(
-                          counterText: '',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          contentPadding: EdgeInsets.zero,
+                children: List.generate(4, (index) {
+                  return SizedBox(
+                    width: 40,
+                    child: TextFormField(
+                      maxLength: 1,
+                      controller: _otpControllers[index],
+                      focusNode: _otpFocusNodes[index],
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        counterText: '',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        keyboardType: TextInputType.number,
-                        onChanged: (value) => _handleOtpChange(value, index),
+                        contentPadding: EdgeInsets.zero,
                       ),
-                    );
-                  },
-                ),
+                      keyboardType: TextInputType.number,
+                      onChanged: (value) => _handleOtpChange(value, index),
+                    ),
+                  );
+                }),
               ),
-        
+
               const SizedBox(height: 40),
-        
+
               // Verify Button
               RoundButton(roundButtonText: "Verify", onPressed: () {}),
               const SizedBox(height: 30),
-        
+
               // Didn't receive OTP text
               GestureDetector(
-                onTap: () {},
+                onTap: () {}, // add functionality
                 child: RichText(
                   text: const TextSpan(
                     text: "Didn't receive the OTP? ",
