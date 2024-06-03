@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/login/widgets/Signin_widget.dart';
-import 'package:pet_app/login/widgets/Signup_widget.dart';
+import 'package:pet_app/login/views/Signin_widget.dart';
+import 'package:pet_app/login/views/Signup_widget.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
