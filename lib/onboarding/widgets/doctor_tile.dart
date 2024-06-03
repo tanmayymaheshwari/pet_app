@@ -27,6 +27,7 @@ class DoctorTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 12, bottom: 10, top: 4),
       child: Container(
+        width: 320,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
@@ -63,7 +64,10 @@ class DoctorTile extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          const SizedBox(width: 25),
+
+                          // BUG : Exapnded is not working as intended
+                          const SizedBox(width: 20),
+                          // Expanded(child: Container()),
                           GestureDetector(
                             child: const Icon(
                               Icons.favorite_border_outlined,
@@ -130,7 +134,7 @@ class DoctorTile extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 14),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -157,9 +161,7 @@ class DoctorTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(width: 40),
-
-                  // BUG : spacebetween not working and hence this is used temporariliy
+                  Expanded(child: Container()),
                   RectButton(
                     RectButtonText: "Book Now",
                     onPressed: () {}, // add functionality

@@ -23,6 +23,7 @@ class LabTestTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 12, top: 10, bottom: 12),
       child: Container(
+        width: 320, // Fixed width to ensure consistent layout
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -87,7 +88,6 @@ class LabTestTile extends StatelessWidget {
 
               // Price and Book Now Button
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     children: [
@@ -112,10 +112,7 @@ class LabTestTile extends StatelessWidget {
                       ),
                     ],
                   ),
-
-                  // Forced Space
-                  const SizedBox(width: 110),
-
+                  Expanded(child: Container()), 
                   // Book Now Button
                   RectButton(
                     RectButtonText: "Book Now",

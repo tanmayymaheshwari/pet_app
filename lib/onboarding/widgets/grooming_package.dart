@@ -17,7 +17,7 @@ class _GroomingPackageState extends State<GroomingPackage> {
       'rating': 4.5,
       'reviews': 20,
       'duration': '1hr 45mins',
-      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing"],
+      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing", "Shampoo Bath", "Exercises"],
       'price': 1120,
     },
     {
@@ -44,7 +44,7 @@ class _GroomingPackageState extends State<GroomingPackage> {
       'rating': 4.2,
       'reviews': 28,
       'duration': '1hr 15mins',
-      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing"],
+      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing", "Shampoo Bath", "Exercises"],
       'price': 1080,
     },
   ];
@@ -60,10 +60,12 @@ class _GroomingPackageState extends State<GroomingPackage> {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: List.generate(groomingPackages.length, (index) {
+          child: SizedBox(
+            height: 230, // fixed height for the ListView
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: groomingPackages.length,
+              itemBuilder: (context, index) {
                 final package = groomingPackages[index];
                 return GroomingTile(
                   serviceName: package['serviceName'],
@@ -72,12 +74,12 @@ class _GroomingPackageState extends State<GroomingPackage> {
                   reviews: package['reviews'],
                   duration: package['duration'],
                   services: package['services'],
-                  price: package['price'], 
+                  price: package['price'],
                 );
-              }),
+              },
             ),
           ),
-        )
+        ),
       ],
     );
   }

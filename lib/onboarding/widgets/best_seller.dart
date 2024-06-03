@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/onboarding/widgets/best_seller_tile.dart';
 
 class BestSeller extends StatelessWidget {
-  const BestSeller({super.key});
+  const BestSeller({Key? key});
 
   final List<Map<String, dynamic>> bestSellers = const [
     {"name": "RC Kitten", "imgUrl": "assets/best_seller_1.png", "price": 20.99},
@@ -18,7 +18,6 @@ class BestSeller extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 14.0, right: 14, bottom: 8),
           child: Row(
-
             // Bestseller Header
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -46,17 +45,19 @@ class BestSeller extends StatelessWidget {
         ),
 
         // Bestseller Item Display
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.only(left: 10, bottom: 4),
-          child: Row(
-            children: List.generate(bestSellers.length, (index) {
+        SizedBox(
+          height: 200, // adjust height according to your needs
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 10, bottom: 4),
+            itemCount: bestSellers.length,
+            itemBuilder: (context, index) {
               return BestSellerTile(
                 name: bestSellers[index]['name'],
                 imgUrl: bestSellers[index]['imgUrl'],
                 price: bestSellers[index]['price'],
               );
-            }),
+            },
           ),
         ),
         const SizedBox(height: 10)

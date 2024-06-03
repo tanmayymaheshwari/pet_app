@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Pet App',
       debugShowCheckedModeBanner: false,
-      home: PetShop(),
+      home: OnBoarding(),
     );
   }
 }

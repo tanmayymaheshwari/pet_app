@@ -3,7 +3,7 @@ import 'package:pet_app/onboarding/widgets/consultation_header.dart';
 import 'package:pet_app/onboarding/widgets/doctor_tile.dart';
 
 class HomeConsultation extends StatefulWidget {
-  const HomeConsultation({super.key});
+  const HomeConsultation({Key? key}) : super(key: key);
 
   @override
   State<HomeConsultation> createState() => _HomeConsultationState();
@@ -27,7 +27,7 @@ class _HomeConsultationState extends State<HomeConsultation> {
       'experience': 8,
       'rating': 4.7,
       'patientCount': 15,
-      'availableTime': '7:30 PM tomorrow',
+      'availableTime': '7:30 PM today',
     },
     {
       'imgUrl': "assets/doctor.jpg",
@@ -60,21 +60,26 @@ class _HomeConsultationState extends State<HomeConsultation> {
         ),
         Padding(
           padding: const EdgeInsets.only(top: 12.0, bottom: 4),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: List.generate(doctors.length, (index) {
+          child: SizedBox(
+            height: 180,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: doctors.length,
+              itemBuilder: (context, index) {
                 final doctor = doctors[index];
-                return DoctorTile(
-                  imgUrl: doctor['imgUrl']!,
-                  doctorName: doctor['doctorName']!,
-                  clinicName: doctor['clinicName']!,
-                  experience: doctor['experience']!,
-                  rating: doctor['rating']!,
-                  patientCount: doctor['patientCount']!,
-                  availableTime: doctor['availableTime']!,
+                return Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: DoctorTile(
+                    imgUrl: doctor['imgUrl']!,
+                    doctorName: doctor['doctorName']!,
+                    clinicName: doctor['clinicName']!,
+                    experience: doctor['experience']!,
+                    rating: doctor['rating']!,
+                    patientCount: doctor['patientCount']!,
+                    availableTime: doctor['availableTime']!,
+                  ),
                 );
-              }),
+              },
             ),
           ),
         )

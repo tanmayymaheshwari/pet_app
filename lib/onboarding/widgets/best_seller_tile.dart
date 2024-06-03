@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerTile extends StatelessWidget {
@@ -14,6 +15,7 @@ class BestSellerTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
+      width: 135,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(4),
@@ -44,12 +46,12 @@ class BestSellerTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
+                    AutoSizeText(
                       name, // product name
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: const TextStyle(fontWeight: FontWeight.w400),
+                      minFontSize: 10,
+                      maxFontSize: 12,
+                      maxLines: 2,
                     ),
                     Text(
                       "\$${price}", // product price

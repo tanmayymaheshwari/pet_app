@@ -10,8 +10,7 @@ class LabTest extends StatefulWidget {
 }
 
 class _LabTestState extends State<LabTest> {
-
-    final List<Map<String, dynamic>> labTests = [
+  final List<Map<String, dynamic>> labTests = [
     {
       'testName': 'Pup 101',
       'description': "A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet",
@@ -53,10 +52,12 @@ class _LabTestState extends State<LabTest> {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: List.generate(labTests.length, (index) {
+          child: SizedBox(
+            height: 210, // fixed height for the ListView
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: labTests.length,
+              itemBuilder: (context, index) {
                 final labTest = labTests[index];
                 return LabTestTile(
                   testName: labTest['testName'],
@@ -65,11 +66,11 @@ class _LabTestState extends State<LabTest> {
                   originalPrice: labTest['originalPrice'],
                   discountedPrice: labTest['discountedPrice'],
                 );
-              }),
+              },
             ),
           ),
         ),
       ],
     );
   }
-  }
+}

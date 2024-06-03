@@ -26,6 +26,7 @@ class GroomingTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 12, top: 10, bottom: 12),
       child: Container(
+        width: 320,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -49,9 +50,6 @@ class GroomingTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        // BUG : SpaceBetween again not working
-                        // Exapnded and Flexible cause the UI to vanish
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           // Service Name
                           Text(
@@ -61,12 +59,17 @@ class GroomingTile extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          const SizedBox(width: 95),
+
+                          // BUG : This is somehow not working here
+                          // Expanded(child: Container()),
+                          
                           TextButton(
                             child: const Text(
                               "Edit Package",
                               style: TextStyle(
                                 color: Color.fromRGBO(237, 109, 78, 1),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                             onPressed: () {}, // add functionality
@@ -74,8 +77,7 @@ class GroomingTile extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 2),
-
-                      // discount offered
+                      // Discount offered
                       Text(
                         "Get $discount% Instant off on this package",
                         style: TextStyle(
@@ -114,7 +116,7 @@ class GroomingTile extends StatelessWidget {
                               color: Colors.grey[500],
                             ),
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(width: 10),
 
                           // time provided
                           const Icon(
@@ -130,14 +132,14 @@ class GroomingTile extends StatelessWidget {
                             ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ],
               ),
 
               // const SizedBox(height: 10),
-              // BUG : DIVIDER was not displying, hence this temporarily
+              // BUG : DIVIDER was not displaying, hence this temporarily
               Text(
                 "____________________________________________",
                 style: TextStyle(color: Colors.grey[200]),
@@ -145,7 +147,7 @@ class GroomingTile extends StatelessWidget {
               const SizedBox(height: 10),
 
               // Services
-              Row(
+              Wrap(
                 children: services.asMap().entries.map((entry) {
                   final index = entry.key;
                   final service = entry.value;
@@ -159,9 +161,8 @@ class GroomingTile extends StatelessWidget {
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 20),
+              Expanded(child: Container()),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // price
                   Text(
@@ -172,10 +173,11 @@ class GroomingTile extends StatelessWidget {
                       color: Color.fromRGBO(237, 109, 78, 1),
                     ),
                   ),
-
-                  // BUG : Same glitch in the spacebetween
-                  const SizedBox(width: 110),
-
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child:
+                        Container(),
+                  ),
                   RectButton(
                     RectButtonText: "Book Now",
                     onPressed: () {}, // add functionality

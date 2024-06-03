@@ -116,7 +116,7 @@ class _OnBoardingState extends State<OnBoarding> {
             const DisplayImage(imgUrl: "assets/onboarding_image_1.png"), 
             // supposed to be an ad?
             PetSearchbar(),
-            const SelectAService(),
+            SelectAService(),
             BestSeller(),
             HomeConsultation(),
             const DisplayImage(imgUrl: "assets/onboarding_image_2.png"),
