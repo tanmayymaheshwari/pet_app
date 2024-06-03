@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/login/login.dart';
-import 'package:pet_app/global_widgets/Round_button.dart';
+import 'package:pet_app/global_widgets/round_button.dart';
 import 'package:pet_app/welcome/widgets/pet_selection_bottomsheet.dart';
 
 class Welcome extends StatefulWidget {

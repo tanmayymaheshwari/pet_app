@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-class OnboardingSearchbar extends StatefulWidget {
+class PetSearchbar extends StatefulWidget {
+  const PetSearchbar({super.key});
+
   @override
-  State<OnboardingSearchbar> createState() => _OnboardingSearchbarState();
+  State<PetSearchbar> createState() => _PetSearchbarState();
 }
 
-class _OnboardingSearchbarState extends State<OnboardingSearchbar> {
+class _PetSearchbarState extends State<PetSearchbar> {
   final TextEditingController _searchController = TextEditingController();
 
   @override

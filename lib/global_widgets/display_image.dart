@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class OnboardingImage extends StatelessWidget {
+class DisplayImage extends StatelessWidget {
   final String imgUrl;
-  const OnboardingImage({super.key, required this.imgUrl});
+  const DisplayImage({super.key, required this.imgUrl});
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/login/widgets/dynamic_text_field_model.dart';
 import 'package:pet_app/login/widgets/dynamic_textfield.dart';
 import 'package:pet_app/otp_verification/otp_verification.dart';
-import 'package:pet_app/global_widgets/Round_button.dart';
+import 'package:pet_app/global_widgets/round_button.dart';
 
 class SignInWidget extends StatefulWidget {
   const SignInWidget({super.key});

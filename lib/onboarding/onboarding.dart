@@ -5,8 +5,8 @@ import 'package:pet_app/onboarding/widgets/condition_consultation.dart';
 import 'package:pet_app/onboarding/widgets/grooming_package.dart';
 import 'package:pet_app/onboarding/widgets/home_consultation.dart';
 import 'package:pet_app/onboarding/widgets/lab_test.dart';
-import 'package:pet_app/onboarding/widgets/onboarding_image.dart';
-import 'package:pet_app/onboarding/widgets/onboarding_searchbar.dart';
+import 'package:pet_app/global_widgets/display_image.dart';
+import 'package:pet_app/global_widgets/searchbar.dart';
 import 'package:pet_app/onboarding/widgets/select_a_service.dart';
 import 'package:pet_app/onboarding/widgets/symptom_consultation.dart';
 
@@ -113,22 +113,21 @@ class _OnBoardingState extends State<OnBoarding> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const OnboardingImage(
-                imgUrl:
-                    "assets/onboarding_image_1.png"), // supposed to be an ad?
-            OnboardingSearchbar(),
+            const DisplayImage(imgUrl: "assets/onboarding_image_1.png"), 
+            // supposed to be an ad?
+            PetSearchbar(),
             const SelectAService(),
             BestSeller(),
             HomeConsultation(),
-            const OnboardingImage(imgUrl: "assets/onboarding_image_2.png"),
+            const DisplayImage(imgUrl: "assets/onboarding_image_2.png"),
             ConditionConsultation(),
             GroomingPackage(),
             SymptomConsultation(),
-            OnboardingImage(imgUrl: "assets/onboarding_image_3.png"),
+            DisplayImage(imgUrl: "assets/onboarding_image_3.png"),
             LabTest(),
             BehaviourConsultation(),
-            OnboardingImage(imgUrl: "assets/onboarding_image_4.png"),
-            OnboardingImage(imgUrl: "assets/onboarding_image_5.png"),
+            DisplayImage(imgUrl: "assets/onboarding_image_4.png"),
+            DisplayImage(imgUrl: "assets/onboarding_image_5.png"),
           ],
         ),
       ),
@@ -155,6 +154,7 @@ class _OnBoardingState extends State<OnBoarding> {
             vertical: 5,
           ),
           child: BottomNavigationBar(
+            // useLegacyColorScheme: false, check
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),

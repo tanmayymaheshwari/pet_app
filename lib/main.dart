@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/onboarding/onboarding.dart';
+import 'package:pet_app/pet_shop/pet_shop.dart';
 import 'package:pet_app/welcome/welcome.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Pet App',
       debugShowCheckedModeBanner: false,
-      home: OnBoarding(),
+      home: PetShop(),
     );
   }
 }
