@@ -68,7 +68,7 @@ class _LabTestState extends State<LabTest> {
               }),
             ),
           ),
-        )
+        ),
       ],
     );
   }

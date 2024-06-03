@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/onboarding/widgets/rect_button.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class LabTestTile extends StatelessWidget {
   final String testName;
@@ -50,13 +51,17 @@ class LabTestTile extends StatelessWidget {
               const SizedBox(height: 2),
 
               // Description
-              // BUG : Text is not wrapped to stay within limits
-              Text(
-                description,
-                softWrap: true,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey[500],
+              SizedBox(
+                width: 300,
+                child: AutoSizeText(
+                  description,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey[500],
+                  ),
+                  maxLines: 3,
+                  minFontSize: 10,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               const SizedBox(height: 6),
