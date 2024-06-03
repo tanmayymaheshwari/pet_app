@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/widgets/consultation_header.dart';
-import 'package:pet_app/onboarding/widgets/doctor_tile.dart';
+import 'package:pet_app/onboarding/views/consultation_header.dart';
+import 'package:pet_app/onboarding/views/doctor_tile.dart';
 
 class HomeConsultation extends StatefulWidget {
   const HomeConsultation({Key? key}) : super(key: key);

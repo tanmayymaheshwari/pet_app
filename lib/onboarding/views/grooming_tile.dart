@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/widgets/rect_button.dart';
+import 'package:pet_app/onboarding/views/rect_button.dart';
 
 class GroomingTile extends StatelessWidget {
   final String serviceName;

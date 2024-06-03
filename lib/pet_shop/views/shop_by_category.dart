@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/pet_shop/widgets/shop_category_tile.dart';
+import 'package:pet_app/pet_shop/views/shop_category_tile.dart';
 
 class ShopByCategory extends StatelessWidget {
   const ShopByCategory({super.key});

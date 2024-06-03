@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/widgets/behaviour_consultation.dart';
-import 'package:pet_app/onboarding/widgets/best_seller.dart';
-import 'package:pet_app/onboarding/widgets/condition_consultation.dart';
-import 'package:pet_app/onboarding/widgets/grooming_package.dart';
-import 'package:pet_app/onboarding/widgets/home_consultation.dart';
-import 'package:pet_app/onboarding/widgets/lab_test.dart';
+import 'package:pet_app/onboarding/views/behaviour_consultation.dart';
+import 'package:pet_app/onboarding/views/best_seller.dart';
+import 'package:pet_app/onboarding/views/condition_consultation.dart';
+import 'package:pet_app/onboarding/views/grooming_package.dart';
+import 'package:pet_app/onboarding/views/home_consultation.dart';
+import 'package:pet_app/onboarding/views/lab_test.dart';
 import 'package:pet_app/global_widgets/display_image.dart';
 import 'package:pet_app/global_widgets/searchbar.dart';
-import 'package:pet_app/onboarding/widgets/select_a_service.dart';
-import 'package:pet_app/onboarding/widgets/symptom_consultation.dart';
+import 'package:pet_app/onboarding/views/select_a_service.dart';
+import 'package:pet_app/onboarding/views/symptom_consultation.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -19,13 +19,39 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   String fullAddress =
-      "24, Indra nagar, Gachibowli circle, Hyderabad, Telangana, India";
+      "24, Indra Nagar, Gachibowli Circle, Hyderabad, Telangana, India";
   int _selectedIndex = 0;
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey _labTestKey = GlobalKey();
+  final GlobalKey _homeConsultationKey = GlobalKey();
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+
+  void _scrollToHomeConsultation() {
+    final context = _homeConsultationKey.currentContext;
+    if (context != null) {
+      Scrollable.ensureVisible(
+        context,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void _scrollToLabTest() {
+    final context = _labTestKey.currentContext;
+    if (context != null) {
+      Scrollable.ensureVisible(
+        context,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 
   void _showFullAddress(BuildContext context) {
@@ -60,7 +86,7 @@ class _OnBoardingState extends State<OnBoarding> {
             children: [
               const Padding(
                 padding: const EdgeInsets.only(top: 12.0),
-                child: const Text(
+                child: Text(
                   'Home',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
@@ -76,7 +102,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     ),
                     const SizedBox(width: 4),
                     const Text(
-                      '24, Indra nagar, Gacchibowli circle..',
+                      '24, Indra Nagar, Gacchibowli Circle',
                       style: TextStyle(color: Colors.grey, fontSize: 14),
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -101,7 +127,7 @@ class _OnBoardingState extends State<OnBoarding> {
                   width: 2.0, // Border width
                 ),
               ),
-              child: CircleAvatar(
+              child: const CircleAvatar(
                 backgroundImage: AssetImage(
                     'assets/welcome_dog_icon.png'), // Replace with your profile image asset
               ),
@@ -109,22 +135,33 @@ class _OnBoardingState extends State<OnBoarding> {
           ),
         ],
       ),
+
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const DisplayImage(imgUrl: "assets/onboarding_image_1.png"), 
+            const DisplayImage(imgUrl: "assets/onboarding_image_1.png"),
             // supposed to be an ad?
             PetSearchbar(),
-            SelectAService(),
+            SelectAService(
+              onLabTestTap: _scrollToLabTest,
+              onTreatmentTap: _scrollToHomeConsultation,
+            ),
             BestSeller(),
-            HomeConsultation(),
+            Container(
+              key: _homeConsultationKey,
+              child: HomeConsultation(),
+            ),
             const DisplayImage(imgUrl: "assets/onboarding_image_2.png"),
             ConditionConsultation(),
             GroomingPackage(),
             SymptomConsultation(),
             DisplayImage(imgUrl: "assets/onboarding_image_3.png"),
-            LabTest(),
+            Container(
+              child: LabTest(),
+              key: _labTestKey,
+            ),
             BehaviourConsultation(),
             DisplayImage(imgUrl: "assets/onboarding_image_4.png"),
             DisplayImage(imgUrl: "assets/onboarding_image_5.png"),

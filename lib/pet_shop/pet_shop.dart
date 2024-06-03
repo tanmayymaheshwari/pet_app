@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/global_widgets/display_image.dart';
 import 'package:pet_app/global_widgets/searchbar.dart';
-import 'package:pet_app/pet_shop/widgets/shop_bestseller.dart';
-import 'package:pet_app/pet_shop/widgets/shop_by_category.dart';
+import 'package:pet_app/pet_shop/views/shop_bestseller.dart';
+import 'package:pet_app/pet_shop/views/shop_by_category.dart';
 
 class PetShop extends StatefulWidget {
   const PetShop({super.key});

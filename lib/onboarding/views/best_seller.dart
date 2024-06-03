@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/widgets/best_seller_tile.dart';
+import 'package:pet_app/onboarding/views/best_seller_tile.dart';
 
 class BestSeller extends StatelessWidget {
   const BestSeller({Key? key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/widgets/consultation_header.dart';
-import 'package:pet_app/onboarding/widgets/lab_test_tile.dart';
+import 'package:pet_app/onboarding/views/consultation_header.dart';
+import 'package:pet_app/onboarding/views/lab_test_tile.dart';
 
 class LabTest extends StatefulWidget {
   const LabTest({super.key});

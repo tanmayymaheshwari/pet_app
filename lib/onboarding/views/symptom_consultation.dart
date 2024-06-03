@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/widgets/consultation_template.dart';
+import 'package:pet_app/onboarding/views/consultation_template.dart';
 
 class SymptomConsultation extends StatefulWidget {
   const SymptomConsultation({super.key});

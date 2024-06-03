@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/widgets/consultation_header.dart';
+import 'package:pet_app/onboarding/views/consultation_header.dart';
 
 class CommonConsultation extends StatefulWidget {
   const CommonConsultation({

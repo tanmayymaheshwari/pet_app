@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/pet_shop/widgets/shop_bestseller_tile.dart';
+import 'package:pet_app/pet_shop/views/shop_bestseller_tile.dart';
 
 class ShopBestseller extends StatelessWidget {
   ShopBestseller({super.key});

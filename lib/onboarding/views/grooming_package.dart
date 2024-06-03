@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pet_app/onboarding/widgets/consultation_header.dart';
-import 'package:pet_app/onboarding/widgets/grooming_tile.dart';
+import 'package:pet_app/onboarding/views/consultation_header.dart';
+import 'package:pet_app/onboarding/views/grooming_tile.dart';
 
 class GroomingPackage extends StatefulWidget {
   const GroomingPackage({super.key});

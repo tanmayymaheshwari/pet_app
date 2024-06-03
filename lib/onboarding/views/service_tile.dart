@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
+import 'package:pet_app/pet_shop/pet_shop.dart';
 
 class ServiceTile extends StatelessWidget {
   final String name;
   final String imgUrl;
+  final Callback onTileTap;
 
-  const ServiceTile({super.key, required this.name, required this.imgUrl});
+  const ServiceTile({super.key, required this.name, required this.imgUrl, required this.onTileTap});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,17 @@ class ServiceTile extends StatelessWidget {
         double height = width * 0.5;
 
         return GestureDetector(
-          onTap: () {}, // add functionality
+          onTap: () {
+            if (name == "Grooming") {
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => const Grooming()));
+            } else if (name == "Pet Shop") {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const PetShop()));
+            } else if (name == "Treatment" || name == "Lab Test") {
+              onTileTap();
+            }
+          }, // add functionality
           child: Card(
             shadowColor: Colors.transparent,
             color: Colors.transparent,
@@ -34,7 +47,8 @@ class ServiceTile extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Center(
-                      child: Image.asset(imgUrl, fit: BoxFit.cover), // Adjust fit as needed
+                      child: Image.asset(imgUrl,
+                          fit: BoxFit.cover), // Adjust fit as needed
                     ),
                   ),
                 ),
