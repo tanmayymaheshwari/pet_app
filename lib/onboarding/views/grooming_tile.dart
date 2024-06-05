@@ -46,100 +46,99 @@ class GroomingTile extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          // Service Name
-                          Text(
-                            serviceName,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-
-                          // BUG : This is somehow not working here
-                          // Expanded(child: Container()),
-                          
-                          TextButton(
-                            child: const Text(
-                              "Edit Package",
-                              style: TextStyle(
-                                color: Color.fromRGBO(237, 109, 78, 1),
-                                fontSize: 12,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            // Service Name
+                            Text(
+                              serviceName,
+                              style: const TextStyle(
+                                fontSize: 18,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            onPressed: () {}, // add functionality
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 2),
-                      // Discount offered
-                      Text(
-                        "Get $discount% Instant off on this package",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[500],
+
+                            Expanded(child: Container()),
+
+                            TextButton(
+                              child: const Text(
+                                "Edit Package",
+                                style: TextStyle(
+                                  color: Color.fromRGBO(237, 109, 78, 1),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              onPressed: () {}, // add functionality
+                            ),
+                          ],
                         ),
-                      ),
-                      const SizedBox(height: 6),
-                      Row(
-                        // rating
-                        children: [
-                          const Icon(
-                            Icons.star,
-                            color: Color.fromRGBO(237, 109, 78, 1),
-                            size: 14,
+                        const SizedBox(height: 2),
+                        // Discount offered
+                        Text(
+                          "Get $discount% Instant off on this package",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[500],
                           ),
-                          Text(
-                            "$rating",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey[500],
+                        ),
+                        const SizedBox(height: 6),
+                        Row(
+                          // rating
+                          children: [
+                            const Icon(
+                              Icons.star,
+                              color: Color.fromRGBO(237, 109, 78, 1),
+                              size: 14,
                             ),
-                          ),
-                          const SizedBox(width: 12),
+                            Text(
+                              "$rating",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                            const SizedBox(width: 12),
 
-                          // reviews
-                          const Icon(
-                            Icons.circle,
-                            color: Color.fromRGBO(237, 109, 78, 1),
-                            size: 14,
-                          ),
-                          Text(
-                            " $reviews Reviews",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey[500],
+                            // reviews
+                            const Icon(
+                              Icons.circle,
+                              color: Color.fromRGBO(237, 109, 78, 1),
+                              size: 14,
                             ),
-                          ),
-                          const SizedBox(width: 10),
+                            Text(
+                              " $reviews Reviews",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                            const SizedBox(width: 10),
 
-                          // time provided
-                          const Icon(
-                            Icons.access_time_filled_rounded,
-                            color: Color.fromRGBO(237, 109, 78, 1),
-                            size: 14,
-                          ),
-                          Text(
-                            " $duration",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey[500],
+                            // time provided
+                            const Icon(
+                              Icons.access_time_filled_rounded,
+                              color: Color.fromRGBO(237, 109, 78, 1),
+                              size: 14,
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                            Text(
+                              " $duration",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
 
-              // const SizedBox(height: 10),
-              // BUG : DIVIDER was not displaying, hence this temporarily
               Text(
                 "____________________________________________",
                 style: TextStyle(color: Colors.grey[200]),
@@ -174,10 +173,7 @@ class GroomingTile extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Expanded(
-                    child:
-                        Container(),
-                  ),
+                  Expanded(child: Container()),
                   RectButton(
                     RectButtonText: "Book Now",
                     onPressed: () {}, // add functionality

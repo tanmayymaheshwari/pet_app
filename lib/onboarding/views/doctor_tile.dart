@@ -1,8 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_app/onboarding/views/rect_button.dart';
 
 class DoctorTile extends StatelessWidget {
-
   final String imgUrl;
   final String doctorName;
   final String clinicName;
@@ -19,7 +19,7 @@ class DoctorTile extends StatelessWidget {
     required this.experience,
     required this.rating,
     required this.patientCount,
-    required this.availableTime, 
+    required this.availableTime,
   });
 
   @override
@@ -47,90 +47,96 @@ class DoctorTile extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  
                   // Doctor Photo
                   Image.asset(imgUrl, fit: BoxFit.cover),
                   const SizedBox(width: 12),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            doctorName,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // Doctor Name
+                            Flexible(
+                              fit: FlexFit.loose,
+                              child: AutoSizeText(
+                                doctorName,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                maxFontSize: 18,
+                                minFontSize: 18,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
-                          ),
 
-                          // BUG : Exapnded is not working as intended
-                          const SizedBox(width: 20),
-                          // Expanded(child: Container()),
-                          GestureDetector(
-                            child: const Icon(
-                              Icons.favorite_border_outlined,
+                            GestureDetector(
+                              child: const Icon(
+                                Icons.favorite_border_outlined,
+                                color: Color.fromRGBO(237, 109, 78, 1),
+                              ),
+                              onTap: () {}, // Add functionality
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 4),
+
+                        AutoSizeText(
+                          clinicName,
+                          style: const TextStyle(
+                            color: Color.fromRGBO(237, 109, 78, 1),
+                          ),
+                          maxFontSize: 12,
+                          minFontSize: 12,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+
+                        // Experience
+                        Text(
+                          "$experience Years Experience",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[500],
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Row(
+                          children: [
+                            // Rating
+                            const Icon(
+                              Icons.star,
                               color: Color.fromRGBO(237, 109, 78, 1),
+                              size: 14,
                             ),
-                            onTap: () {}, // Add functionality
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 4),
-
-                      // Clinic Names
-                      Text(
-                        clinicName,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: Color.fromRGBO(237, 109, 78, 1),
-                        ),
-                      ),
-
-                      // Experience
-                      Text(
-                        "$experience Years Experience",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[500],
-                        ),
-                      ),
-                      const SizedBox(height: 6),
-                      Row(
-                        children: [
-
-                          // Rating
-                          const Icon(
-                            Icons.star,
-                            color: Color.fromRGBO(237, 109, 78, 1),
-                            size: 14,
-                          ),
-                          Text(
-                            "$rating",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey[500],
+                            Text(
+                              "$rating",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[500],
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 12),
+                            const SizedBox(width: 12),
 
-                          // Patients
-                          const Icon(
-                            Icons.circle,
-                            color: Color.fromRGBO(237, 109, 78, 1),
-                            size: 14,
-                          ),
-                          Text(
-                            " $patientCount Patient Stories",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey[500],
+                            // Patients
+                            const Icon(
+                              Icons.circle,
+                              color: Color.fromRGBO(237, 109, 78, 1),
+                              size: 14,
                             ),
-                          ),
-                        ],
-                      )
-                    ],
+                            Text(
+                              " $patientCount Patient Stories",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -161,7 +167,7 @@ class DoctorTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Expanded(child: Container()),
+                  // Expanded(child: Container()),
                   RectButton(
                     RectButtonText: "Book Now",
                     onPressed: () {}, // add functionality

@@ -4,18 +4,24 @@ import 'package:flutter/material.dart';
 class ShopCategoryTile extends StatelessWidget {
   final String name;
   final String imgUrl;
+  final VoidCallback onTap;
 
-  const ShopCategoryTile({super.key, required this.name, required this.imgUrl});
+  const ShopCategoryTile({
+    super.key,
+    required this.name,
+    required this.imgUrl,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double width = constraints.maxWidth * 0.8;
+        double width = constraints.maxWidth * 0.7;
         double height = width*0.8;
 
         return GestureDetector(
-          onTap: () {}, // add functionality
+          onTap: onTap, // add functionality
           child: Card(
             shadowColor: Colors.transparent,
             color: Colors.transparent,
@@ -40,7 +46,7 @@ class ShopCategoryTile extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: height * 0.5,
+                  height: height * 0.6,
                   width: width,
                   decoration: const BoxDecoration(
                     color: Color.fromRGBO(252, 213, 208, 1),
@@ -59,7 +65,7 @@ class ShopCategoryTile extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                         maxFontSize: 12,
-                        minFontSize: 8,
+                        minFontSize: 10,
                         maxLines: 2,
                       ),
                     ),

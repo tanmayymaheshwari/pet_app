@@ -62,13 +62,25 @@ class TreatmentDoctorList extends StatelessWidget {
               shopBestsellers.length,
               (index) {
                 final item = shopBestsellers[index];
-                return TreatmentDoctorTile(
-                  docImgPath: item['imgUrl'],
-                  docName: item['docName'],
-                  experience: item['experience'],
-                  rating: item['rating'],
-                  review: item['reviewCount'],
-                  distance: item['distance'],
+                return Column(
+
+                  children: [
+                    TreatmentDoctorTile(
+                      docImgPath: item['imgUrl'],
+                      docName: item['docName'],
+                      experience: item['experience'],
+                      rating: item['rating'],
+                      review: item['reviewCount'],
+                      distance: item['distance'],
+                    ),
+                    Container(
+                      color: const Color.fromRGBO(255, 248, 247, 1),
+                      child: SizedBox(
+                        height: 8,
+                        child: Container(), // to display the color
+                      ),
+                    ),
+                  ],
                 );
               },
             ),

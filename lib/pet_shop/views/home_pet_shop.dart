@@ -21,7 +21,7 @@ class _PetShopState extends State<PetShop> {
           shadowColor: Colors.white,
           surfaceTintColor: Colors.white,
           elevation: 5,
-          title: Center(
+          title: const Center(
               child: const Text(
             "Pet Shop",
             style: TextStyle(
@@ -42,7 +42,7 @@ class _PetShopState extends State<PetShop> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DisplayImage(imgUrl: "assets/petshop_image_1.png"),
+              const DisplayImage(imgUrl: "assets/petshop_image_1.png"),
               PetSearchbar(searchbarHintText: "ex : toys, grooming, medicine"),
               ShopByCategory(),
               ShopBestseller(),

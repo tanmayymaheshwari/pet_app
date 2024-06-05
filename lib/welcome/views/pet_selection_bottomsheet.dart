@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/global_widgets/round_button.dart';
-import 'package:pet_app/registration_pet_info/views/home_registration_pet_info.dart';
 import 'package:pet_app/welcome/views/pet_selection_tile.dart';
 
 class PetSelectionBottomsheet extends StatefulWidget {
@@ -26,12 +25,16 @@ class _PetSelectionBottomsheetState extends State<PetSelectionBottomsheet> {
       height: 400,
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.only(
+            top: 20,
+            bottom: 12.0,
+            left: 24,
+            right: 24,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               // BottomSheet Text
               const Text(
                 'Select your Pet Type',
@@ -78,14 +81,14 @@ class _PetSelectionBottomsheetState extends State<PetSelectionBottomsheet> {
                 child: RoundButton(
                   roundButtonText: "+Add Pet Details",
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RegistrationPetInfo(
-                          petTypeIndex: _selectedPet,
-                        ),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => RegistrationPetInfo(
+                    //       petTypeIndex: _selectedPet,
+                    //     ),
+                    //   ),
+                    // );
                   },
                 ),
               ),

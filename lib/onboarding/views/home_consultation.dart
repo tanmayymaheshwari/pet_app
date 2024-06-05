@@ -3,7 +3,7 @@ import 'package:pet_app/onboarding/views/consultation_header.dart';
 import 'package:pet_app/onboarding/views/doctor_tile.dart';
 
 class HomeConsultation extends StatefulWidget {
-  const HomeConsultation({Key? key}) : super(key: key);
+  const HomeConsultation({super.key});
 
   @override
   State<HomeConsultation> createState() => _HomeConsultationState();
@@ -21,7 +21,7 @@ class _HomeConsultationState extends State<HomeConsultation> {
       'availableTime': '10:00 AM tomorrow',
     },
     {
-      'imgUrl': "assets/doctor_2.jpg",
+      'imgUrl': "assets/doctor_2.png",
       'doctorName': 'Dr. Rakesh Singh',
       'clinicName': 'Paws and Claws Veterinary Clinic',
       'experience': 8,
@@ -30,7 +30,7 @@ class _HomeConsultationState extends State<HomeConsultation> {
       'availableTime': '7:30 PM today',
     },
     {
-      'imgUrl': "assets/doctor_3.jpg",
+      'imgUrl': "assets/doctor_3.png",
       'doctorName': 'Dr. Priya Patel',
       'clinicName': 'Pet Care Hospital',
       'experience': 6,
@@ -39,7 +39,7 @@ class _HomeConsultationState extends State<HomeConsultation> {
       'availableTime': '9:00 AM tomorrow',
     },
     {
-      'imgUrl': "assets/doctor_4.jpg",
+      'imgUrl': "assets/doctor_4.png",
       'doctorName': 'Dr. Anil Gupta',
       'clinicName': 'Animal Health Clinic',
       'experience': 10,

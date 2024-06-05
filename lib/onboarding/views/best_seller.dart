@@ -5,8 +5,8 @@ class BestSeller extends StatelessWidget {
   const BestSeller({Key? key});
 
   final List<Map<String, dynamic>> bestSellers = const [
-    {"name": "RC Kitten", "imgUrl": "assets/best_seller_1.png", "price": 20.99},
-    {"name": "RC Kitten", "imgUrl": "assets/best_seller_2.png", "price": 18.99},
+    {"name": "RC Kitten", "imgUrl": "assets/best_seller_1.png", "price": 120.99},
+    {"name": "Cat Fish Food", "imgUrl": "assets/best_seller_2.png", "price": 18.99},
     {"name": "RC Kitten", "imgUrl": "assets/best_seller_1.png", "price": 20.99},
     {"name": "RC Kitten", "imgUrl": "assets/best_seller_2.png", "price": 18.99},
   ];

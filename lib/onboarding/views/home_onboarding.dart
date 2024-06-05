@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_app/onboarding/views/behaviour_consultation.dart';
 import 'package:pet_app/onboarding/views/best_seller.dart';
@@ -30,7 +31,6 @@ class _OnBoardingState extends State<OnBoarding> {
       _selectedIndex = index;
     });
   }
-
 
   void _scrollToHomeConsultation() {
     final context = _homeConsultationKey.currentContext;
@@ -79,17 +79,15 @@ class _OnBoardingState extends State<OnBoarding> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 254, 253, 1),
       appBar: AppBar(
+        toolbarHeight: 60,
         title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: const EdgeInsets.only(top: 12.0),
-                child: Text(
-                  'Home',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                ),
+              const Text(
+                'Home', // add variable
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
@@ -100,13 +98,22 @@ class _OnBoardingState extends State<OnBoarding> {
                       size: 16,
                       color: Colors.grey,
                     ),
-                    const SizedBox(width: 4),
-                    const Text(
-                      '24, Indra Nagar, Gacchibowli Circle',
-                      style: TextStyle(color: Colors.grey, fontSize: 14),
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(width: 2),
+                    const SizedBox(
+                      width: 140,
+                      child: AutoSizeText(
+                        '24, Indra Nagar, Gacchibowli Circle', //add variable
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                        maxFontSize: 12,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     IconButton(
+                      color: Colors.grey[700],
+                      padding: EdgeInsets.zero,
                       icon: const Icon(Icons.arrow_drop_down),
                       onPressed: () => _showFullAddress(context),
                     ),
@@ -123,13 +130,13 @@ class _OnBoardingState extends State<OnBoarding> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: const Color.fromARGB(255, 242, 98, 98), // Border color
-                  width: 2.0, // Border width
+                  color: const Color.fromARGB(255, 242, 98, 98),
+                  width: 2.0,
                 ),
               ),
               child: const CircleAvatar(
-                backgroundImage: AssetImage(
-                    'assets/welcome_dog_icon.png'), // Replace with your profile image asset
+                backgroundImage:
+                    AssetImage('assets/welcome_dog_icon.png'), // variable image
               ),
             ),
           ),
@@ -181,7 +188,7 @@ class _OnBoardingState extends State<OnBoarding> {
             BoxShadow(
               color: Colors.black26,
               blurRadius: 10.0,
-              offset: Offset(0, -1), // Shadow position
+              offset: Offset(0, -1),
             ),
           ],
         ),
@@ -197,14 +204,14 @@ class _OnBoardingState extends State<OnBoarding> {
                 icon: Icon(Icons.home),
                 label: 'Home',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.access_time),
-                label: 'Orders',
-              ),
               // BottomNavigationBarItem(
-              //   icon: Icon(Icons.shopping_bag),
-              //   label: 'Cart',
+              //   icon: Icon(Icons.access_time),
+              //   label: 'Orders',
               // ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_bag),
+                label: 'Cart',
+              ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: 'Profile',

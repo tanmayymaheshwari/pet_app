@@ -4,13 +4,13 @@ import 'package:pet_app/pet_shop/views/shop_category_tile.dart';
 class ShopByCategory extends StatelessWidget {
   const ShopByCategory({super.key});
 
-   @override
+  @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.only(left: 14.0,top: 14, bottom: 8),
+        const Padding(
+          padding: EdgeInsets.only(left: 14.0, top: 14, bottom: 8),
           child: Text(
             "Shop by Category",
             style: TextStyle(
@@ -22,28 +22,74 @@ class ShopByCategory extends StatelessWidget {
         ),
         Row(
           children: [
-            Expanded(child: ShopCategoryTile(name:"Food", imgUrl:"assets/shop_category_food.png",)),
-            Expanded(child: ShopCategoryTile(name:"Grooming", imgUrl:"assets/shop_category_grooming.png",)),
-            Expanded(child: ShopCategoryTile(name:"Leash", imgUrl:"assets/shop_category_leash.png",)),
+            Expanded(
+                child: ShopCategoryTile(
+              name: "Food",
+              imgUrl: "assets/shop_category_food.png",
+              onTap: () {},
+            )),
+            Expanded(
+                child: ShopCategoryTile(
+              name: "Grooming",
+              imgUrl: "assets/shop_category_grooming.png",
+              onTap: () {},
+            )),
+            Expanded(
+                child: ShopCategoryTile(
+              name: "Leash",
+              imgUrl: "assets/shop_category_leash.png",
+              onTap: () {},
+              
+            )),
           ],
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Row(
           children: [
-            Expanded(child: ShopCategoryTile(name:"Tasty Treats", imgUrl:"assets/shop_category_tastytreat.png",)),
-            Expanded(child: ShopCategoryTile(name:"Clothing", imgUrl:"assets/shop_category_clothing.png",)),
-            Expanded(child: ShopCategoryTile(name:"Walk Essential", imgUrl:"assets/shop_category_walk.png",)),
+            Expanded(
+                child: ShopCategoryTile(
+              name: "Tasty Treats",
+              imgUrl: "assets/shop_category_tastytreat.png",
+              onTap: () {},
+            )),
+            Expanded(
+                child: ShopCategoryTile(
+              name: "Clothing",
+              imgUrl: "assets/shop_category_clothing.png",
+              onTap: () {},
+            )),
+            Expanded(
+                child: ShopCategoryTile(
+              name: "Walk Essential",
+              imgUrl: "assets/shop_category_walk.png",
+              onTap: () {},
+            )),
           ],
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Row(
           children: [
-            Expanded(child: ShopCategoryTile(name:"Beds", imgUrl:"assets/shop_category_beds.png",)),
-            Expanded(child: ShopCategoryTile(name:"Training Aid", imgUrl:"assets/shop_category_trainingaid.png",)),
-            Expanded(child: ShopCategoryTile(name:"Health Supplements", imgUrl:"assets/shop_category_health.png",)),
+            Expanded(
+                child: ShopCategoryTile(
+              name: "Beds",
+              imgUrl: "assets/shop_category_beds.png",
+              onTap: () {},
+            )),
+            Expanded(
+                child: ShopCategoryTile(
+              name: "Training Aid",
+              imgUrl: "assets/shop_category_trainingaid.png",
+              onTap: () {},
+            )),
+            Expanded(
+                child: ShopCategoryTile(
+              name: "Health Supplements",
+              imgUrl: "assets/shop_category_health.png",
+              onTap: () {},
+            )),
           ],
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
       ],
     );
   }

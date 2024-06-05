@@ -15,7 +15,7 @@ class BestSellerTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
-      width: 135,
+      width: 145,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(4),
@@ -37,57 +37,68 @@ class BestSellerTile extends StatelessWidget {
               child: Image.asset(imgUrl, fit: BoxFit.cover),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    AutoSizeText(
-                      name, // product name
-                      style: const TextStyle(fontWeight: FontWeight.w400),
-                      minFontSize: 10,
-                      maxFontSize: 12,
-                      maxLines: 2,
-                    ),
-                    Text(
-                      "\$${price}", // product price
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 65,
+                        child: AutoSizeText(
+                          name, // product name
+                          style: const TextStyle(fontWeight: FontWeight.w400),
+                          maxFontSize: 12,
+                          minFontSize: 12,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
+                      SizedBox(
+                        width: 65,
+                        child: AutoSizeText(
+                          "\$${price}", // product price
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                          ),
+                          maxFontSize: 16,
+                          minFontSize: 16,
+                          maxLines: 1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {}, // add functionality
+
+                  style: ElevatedButton.styleFrom(
+                    shape: const CircleBorder(),
+                    backgroundColor: Colors.transparent,
+                    padding: const EdgeInsets.all(0),
+                    shadowColor: Colors.transparent,
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(237, 109, 78, 1),
                     ),
-                  ],
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {}, // add functionalith
-
-                style: ElevatedButton.styleFrom(
-                  shape: const CircleBorder(),
-                  backgroundColor: Colors.transparent,
-                  padding: const EdgeInsets.all(0),
-                  shadowColor: Colors.transparent,
-                ),
-                child: Container(
-                  padding: const EdgeInsets.all(4),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromRGBO(237, 109, 78, 1),
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 20,
+                    ),
                   ),
-                  child: const Icon(
-                    Icons.add,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                ),
-              )
+                )
 
-              // Button
-            ],
+                // Button
+              ],
+            ),
           ),
         ],
       ),

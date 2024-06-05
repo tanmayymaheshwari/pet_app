@@ -10,7 +10,6 @@ class Verification extends StatefulWidget {
 }
 
 class _VerificationState extends State<Verification> with CodeAutoFill {
-
   // to manage OTP blocks
   final List<TextEditingController> _otpControllers =
       List.generate(4, (index) => TextEditingController());
@@ -35,7 +34,7 @@ class _VerificationState extends State<Verification> with CodeAutoFill {
     super.dispose();
   }
 
-  // automatically fills OTP 
+  // automatically fills OTP
   // VERIFY IF THIS WORKS
   @override
   void codeUpdated() {
@@ -56,6 +55,7 @@ class _VerificationState extends State<Verification> with CodeAutoFill {
       FocusScope.of(context).requestFocus(_otpFocusNodes[index - 1]);
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -101,13 +101,25 @@ class _VerificationState extends State<Verification> with CodeAutoFill {
                       controller: _otpControllers[index],
                       focusNode: _otpFocusNodes[index],
                       textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                       decoration: InputDecoration(
                         counterText: '',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: const BorderSide(
+                            color: Color.fromRGBO(237, 109, 78, 1),
+                            width: 2,
+                          ),
+                        ),
                         contentPadding: EdgeInsets.zero,
                       ),
+                      cursorColor: Colors.transparent,
                       keyboardType: TextInputType.number,
                       onChanged: (value) => _handleOtpChange(value, index),
                     ),

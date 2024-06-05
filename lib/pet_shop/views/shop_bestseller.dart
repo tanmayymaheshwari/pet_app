@@ -69,13 +69,24 @@ class ShopBestseller extends StatelessWidget {
               shopBestsellers.length,
               (index) {
                 final item = shopBestsellers[index];
-                return ShopBestsellerTile(
-                  imgUrl: item['imgUrl'],
-                  itemName: item['itemName'],
-                  itemDescription: item['itemDescription'],
-                  price: item['price'],
-                  rating: item['rating'],
-                  reviewCount: item['reviewCount'],
+                return Column(
+                  children: [
+                    ShopBestsellerTile(
+                      imgUrl: item['imgUrl'],
+                      itemName: item['itemName'],
+                      itemDescription: item['itemDescription'],
+                      price: item['price'],
+                      rating: item['rating'],
+                      reviewCount: item['reviewCount'],
+                    ),
+                    Container(
+                      color: const Color.fromRGBO(255, 248, 247, 1),
+                      child: const SizedBox(
+                        height: 8,
+                        child: Center(), // to display the color
+                      ),
+                    ),
+                  ],
                 );
               },
             ),
