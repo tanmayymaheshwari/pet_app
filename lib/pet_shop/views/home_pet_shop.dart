@@ -43,7 +43,7 @@ class _PetShopState extends State<PetShop> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               DisplayImage(imgUrl: "assets/petshop_image_1.png"),
-              PetSearchbar(),
+              PetSearchbar(searchbarHintText: "ex : toys, grooming, medicine"),
               ShopByCategory(),
               ShopBestseller(),
             ],

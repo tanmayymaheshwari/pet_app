@@ -107,7 +107,7 @@ class _OnBoardingState extends State<OnBoarding> {
                       overflow: TextOverflow.ellipsis,
                     ),
                     IconButton(
-                      icon: Icon(Icons.arrow_drop_down),
+                      icon: const Icon(Icons.arrow_drop_down),
                       onPressed: () => _showFullAddress(context),
                     ),
                   ],
@@ -143,7 +143,7 @@ class _OnBoardingState extends State<OnBoarding> {
           children: [
             const DisplayImage(imgUrl: "assets/onboarding_image_1.png"),
             // supposed to be an ad?
-            PetSearchbar(),
+            PetSearchbar(searchbarHintText: 'Search for toys, grooming ...'),
             SelectAService(
               onLabTestTap: _scrollToLabTest,
               onTreatmentTap: _scrollToHomeConsultation,
@@ -157,14 +157,14 @@ class _OnBoardingState extends State<OnBoarding> {
             ConditionConsultation(),
             GroomingPackage(),
             SymptomConsultation(),
-            DisplayImage(imgUrl: "assets/onboarding_image_3.png"),
+            const DisplayImage(imgUrl: "assets/onboarding_image_3.png"),
             Container(
               child: LabTest(),
               key: _labTestKey,
             ),
             BehaviourConsultation(),
-            DisplayImage(imgUrl: "assets/onboarding_image_4.png"),
-            DisplayImage(imgUrl: "assets/onboarding_image_5.png"),
+            const DisplayImage(imgUrl: "assets/onboarding_image_4.png"),
+            const DisplayImage(imgUrl: "assets/onboarding_image_5.png"),
           ],
         ),
       ),

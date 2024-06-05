@@ -12,7 +12,7 @@ class HomeConsultation extends StatefulWidget {
 class _HomeConsultationState extends State<HomeConsultation> {
   final List<Map<String, dynamic>> doctors = [
     {
-      'imgUrl': "assets/doctor.jpg",
+      'imgUrl': "assets/doctor_1.jpg",
       'doctorName': 'Dr. Shruti Kedia',
       'clinicName': 'Pet101 Clinic, Hyderabad',
       'experience': 5,
@@ -21,7 +21,7 @@ class _HomeConsultationState extends State<HomeConsultation> {
       'availableTime': '10:00 AM tomorrow',
     },
     {
-      'imgUrl': "assets/doctor.jpg",
+      'imgUrl': "assets/doctor_2.jpg",
       'doctorName': 'Dr. Rakesh Singh',
       'clinicName': 'Paws and Claws Veterinary Clinic',
       'experience': 8,
@@ -30,7 +30,7 @@ class _HomeConsultationState extends State<HomeConsultation> {
       'availableTime': '7:30 PM today',
     },
     {
-      'imgUrl': "assets/doctor.jpg",
+      'imgUrl': "assets/doctor_3.jpg",
       'doctorName': 'Dr. Priya Patel',
       'clinicName': 'Pet Care Hospital',
       'experience': 6,
@@ -39,7 +39,7 @@ class _HomeConsultationState extends State<HomeConsultation> {
       'availableTime': '9:00 AM tomorrow',
     },
     {
-      'imgUrl': "assets/doctor.jpg",
+      'imgUrl': "assets/doctor_4.jpg",
       'doctorName': 'Dr. Anil Gupta',
       'clinicName': 'Animal Health Clinic',
       'experience': 10,

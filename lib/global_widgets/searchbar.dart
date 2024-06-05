@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PetSearchbar extends StatefulWidget {
-  const PetSearchbar({super.key});
+  final String searchbarHintText;
+  const PetSearchbar({super.key, required this.searchbarHintText});
 
   @override
   State<PetSearchbar> createState() => _PetSearchbarState();
@@ -54,10 +55,12 @@ class _PetSearchbarState extends State<PetSearchbar> {
               child: TextField(
                 controller: _searchController,
                 style: const TextStyle(color: Color.fromRGBO(123, 68, 54, 1)),
-                decoration: const InputDecoration(
-                  hintText: 'Search for toys, grooming ...',
-                  hintStyle: TextStyle(
-                      color: Color.fromRGBO(151, 151, 151, 1), fontSize: 12),
+                decoration: InputDecoration(
+                  hintText: widget.searchbarHintText,
+                  hintStyle: const TextStyle(
+                    color: Color.fromRGBO(151, 151, 151, 1),
+                    fontSize: 12,
+                  ),
                   border: InputBorder.none,
                 ),
                 onSubmitted: (value) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/global_widgets/round_button.dart';
-import 'package:pet_app/registration_pet_info/registration_pet_info.dart';
+import 'package:pet_app/registration_pet_info/views/home_registration_pet_info.dart';
 import 'package:pet_app/welcome/views/pet_selection_tile.dart';
 
 class PetSelectionBottomsheet extends StatefulWidget {
