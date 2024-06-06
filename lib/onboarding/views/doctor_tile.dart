@@ -27,7 +27,7 @@ class DoctorTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 12, bottom: 10, top: 4),
       child: Container(
-        width: 320,
+        width: MediaQuery.of(context).size.width*0.9,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
@@ -140,7 +140,7 @@ class DoctorTile extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 14),
+              Expanded(child: Container()),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

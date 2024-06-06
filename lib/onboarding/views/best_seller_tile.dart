@@ -15,7 +15,7 @@ class BestSellerTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
-      width: 145,
+      width: MediaQuery.of(context).size.width * 0.4, // check1
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(4),
@@ -43,7 +43,7 @@ class BestSellerTile extends StatelessWidget {
               children: [
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
+                      const EdgeInsets.only(top: 8, bottom: 8, left: 12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

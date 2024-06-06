@@ -22,36 +22,11 @@ class _OnBoardingState extends State<OnBoarding> {
   String fullAddress =
       "24, Indra Nagar, Gachibowli Circle, Hyderabad, Telangana, India";
   int _selectedIndex = 0;
-  final ScrollController _scrollController = ScrollController();
-  final GlobalKey _labTestKey = GlobalKey();
-  final GlobalKey _homeConsultationKey = GlobalKey();
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-  }
-
-  void _scrollToHomeConsultation() {
-    final context = _homeConsultationKey.currentContext;
-    if (context != null) {
-      Scrollable.ensureVisible(
-        context,
-        duration: const Duration(seconds: 1),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
-  void _scrollToLabTest() {
-    final context = _labTestKey.currentContext;
-    if (context != null) {
-      Scrollable.ensureVisible(
-        context,
-        duration: const Duration(seconds: 1),
-        curve: Curves.easeInOut,
-      );
-    }
   }
 
   void _showFullAddress(BuildContext context) {
@@ -144,31 +119,24 @@ class _OnBoardingState extends State<OnBoarding> {
       ),
 
       body: SingleChildScrollView(
-        controller: _scrollController,
+
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const DisplayImage(imgUrl: "assets/onboarding_image_1.png"),
             // supposed to be an ad?
             PetSearchbar(searchbarHintText: 'Search for toys, grooming ...'),
-            SelectAService(
-              onLabTestTap: _scrollToLabTest,
-              onTreatmentTap: _scrollToHomeConsultation,
-            ),
+            SelectAService(),
             BestSeller(),
-            Container(
-              key: _homeConsultationKey,
-              child: HomeConsultation(),
-            ),
+            HomeConsultation(),
+
             const DisplayImage(imgUrl: "assets/onboarding_image_2.png"),
             ConditionConsultation(),
             GroomingPackage(),
             SymptomConsultation(),
             const DisplayImage(imgUrl: "assets/onboarding_image_3.png"),
-            Container(
-              child: LabTest(),
-              key: _labTestKey,
-            ),
+            LabTest(),
+
             BehaviourConsultation(),
             const DisplayImage(imgUrl: "assets/onboarding_image_4.png"),
             const DisplayImage(imgUrl: "assets/onboarding_image_5.png"),
@@ -198,21 +166,24 @@ class _OnBoardingState extends State<OnBoarding> {
             vertical: 5,
           ),
           child: BottomNavigationBar(
-            // useLegacyColorScheme: false, check
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
+                backgroundColor: Colors.transparent,
                 icon: Icon(Icons.home),
                 label: 'Home',
               ),
-              // BottomNavigationBarItem(
-              //   icon: Icon(Icons.access_time),
-              //   label: 'Orders',
-              // ),
               BottomNavigationBarItem(
+                icon: Icon(Icons.access_time),
+                label: 'Orders',
+                backgroundColor: Colors.transparent,
+              ),
+              BottomNavigationBarItem(
+                backgroundColor: Colors.transparent,
                 icon: Icon(Icons.shopping_bag),
                 label: 'Cart',
               ),
               BottomNavigationBarItem(
+                backgroundColor: Colors.transparent,
                 icon: Icon(Icons.person),
                 label: 'Profile',
               ),

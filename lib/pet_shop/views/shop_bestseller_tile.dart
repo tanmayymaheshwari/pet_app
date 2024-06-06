@@ -24,7 +24,8 @@ class ShopBestsellerTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 12, right: 12),
       child: Container(
-        width: 330,
+        width: MediaQuery.of(context).size.width,
+        
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
@@ -60,6 +61,7 @@ class ShopBestsellerTile extends StatelessWidget {
                         color: Colors.grey[700],
                       ),
                       maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
 
                     const SizedBox(height: 8),
@@ -96,7 +98,7 @@ class ShopBestsellerTile extends StatelessWidget {
                         Text(
                           "\$$price",
                           style: const TextStyle(
-                            fontSize: 16,
+                            fontSize: 20,
                             fontWeight: FontWeight.w600,
                             color: Color.fromRGBO(237, 109, 78, 1),
                           ),

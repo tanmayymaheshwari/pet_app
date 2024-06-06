@@ -16,7 +16,7 @@ class ShopBestseller extends StatelessWidget {
     {
       'imgUrl': 'assets/best_seller_product.jpg',
       'itemName': 'Drools',
-      'itemDescription': '1.2kg egg & chicken 3kg dry adult food',
+      'itemDescription': '1.2kg egg & chicken 3kg dry adult food. 3kg dry adult food.',
       'price': 180,
       'rating': 4.5,
       'reviewCount': 67,
@@ -24,7 +24,7 @@ class ShopBestseller extends StatelessWidget {
     {
       'imgUrl': 'assets/best_seller_product.jpg',
       'itemName': 'Drools',
-      'itemDescription': '1.2kg egg & chicken 3kg dry adult food',
+      'itemDescription': '1.2kg egg & chicken 3kg dry adult food. Good for pets who are habituated to being lazy.',
       'price': 180,
       'rating': 4.5,
       'reviewCount': 67,
@@ -47,8 +47,8 @@ class ShopBestseller extends StatelessWidget {
         Container(
           color: const Color.fromRGBO(255, 248, 247, 1),
           child: const SizedBox(
-            height: 6,
-            child: Center(), // to display the color
+            height: 10,
+            child: Center(),
           ),
         ),
         const Padding(

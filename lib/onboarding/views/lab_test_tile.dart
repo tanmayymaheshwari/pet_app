@@ -23,7 +23,7 @@ class LabTestTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 12, top: 10, bottom: 12),
       child: Container(
-        width: 320, // Fixed width to ensure consistent layout
+        width: MediaQuery.of(context).size.width * 0.85,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -53,15 +53,16 @@ class LabTestTile extends StatelessWidget {
 
               // Description
               SizedBox(
-                width: 300,
+                width: MediaQuery.of(context).size.width * 0.8,
                 child: AutoSizeText(
                   description,
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 11,
                     color: Colors.grey[500],
                   ),
                   maxLines: 3,
-                  minFontSize: 10,
+                  // maxFontSize: 11,
+                  // minFontSize: 11,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -112,7 +113,7 @@ class LabTestTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Expanded(child: Container()), 
+                  Expanded(child: Container()),
                   // Book Now Button
                   RectButton(
                     RectButtonText: "Book Now",

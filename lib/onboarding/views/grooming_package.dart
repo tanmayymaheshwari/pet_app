@@ -17,7 +17,13 @@ class _GroomingPackageState extends State<GroomingPackage> {
       'rating': 4.5,
       'reviews': 20,
       'duration': '1hr 45mins',
-      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing", "Shampoo Bath", "Exercises"],
+      'services': [
+        "Body Spray",
+        "Medicated Bath",
+        "Teeth Brushing",
+        "Shampoo Bath",
+        "Exercises"
+      ],
       'price': 1120,
     },
     {
@@ -44,7 +50,13 @@ class _GroomingPackageState extends State<GroomingPackage> {
       'rating': 4.2,
       'reviews': 28,
       'duration': '1hr 15mins',
-      'services': ["Body Spray", "Medicated Bath", "Teeth Brushing", "Shampoo Bath", "Exercises"],
+      'services': [
+        "Body Spray",
+        "Medicated Bath",
+        "Teeth Brushing",
+        "Shampoo Bath",
+        "Exercises"
+      ],
       'price': 1080,
     },
   ];
@@ -61,7 +73,7 @@ class _GroomingPackageState extends State<GroomingPackage> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: SizedBox(
-            height: 230, // fixed height for the ListView
+            height: MediaQuery.of(context).size.width * 0.7,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: groomingPackages.length,

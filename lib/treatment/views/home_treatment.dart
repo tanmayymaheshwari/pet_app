@@ -44,6 +44,14 @@ class _TreatmentState extends State<Treatment> {
               ),
             ),
           ),
+          // to balance out the back button, remove if any action is added
+          actions: const [
+            Padding(
+              padding: EdgeInsets.all(12.0),
+              child: Icon(Icons.arrow_forward, color: Colors.transparent,),
+              
+            ),
+          ],
         ),
 
         // DISPLAY SCREEN

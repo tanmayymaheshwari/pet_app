@@ -24,7 +24,7 @@ class TreatmentDoctorTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 12, bottom: 10, top: 4),
       child: Container(
-        width: 340,
+        width: MediaQuery.of(context).size.width * 0.9,
         decoration: const BoxDecoration(color: Colors.white),
         child: Padding(
           padding: const EdgeInsets.all(10),

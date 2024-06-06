@@ -61,7 +61,7 @@ class _HomeConsultationState extends State<HomeConsultation> {
         Padding(
           padding: const EdgeInsets.only(top: 12.0, bottom: 4),
           child: SizedBox(
-            height: 180,
+            height: MediaQuery.of(context).size.width * 0.55,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: doctors.length,

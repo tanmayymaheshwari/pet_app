@@ -24,6 +24,7 @@ class _CommonConsultationState extends State<CommonConsultation> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ConsultationHeader(
           title: widget.title,
@@ -31,7 +32,7 @@ class _CommonConsultationState extends State<CommonConsultation> {
           onPressed: () {},
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 14),
+          padding: const EdgeInsets.only(top: 14, bottom: 14, left: 12),
           child: Wrap(
             spacing: 8.0,
             runSpacing: 8.0,

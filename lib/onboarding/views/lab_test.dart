@@ -13,28 +13,32 @@ class _LabTestState extends State<LabTest> {
   final List<Map<String, dynamic>> labTests = [
     {
       'testName': 'Pup 101',
-      'description': "A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet",
+      'description':
+          "A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet.",
       'parameters': 5,
       'originalPrice': 1120,
       'discountedPrice': 280,
     },
     {
       'testName': 'Pup 102',
-      'description': "Quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet. A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet",
+      'description':
+          "Quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet. A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet",
       'parameters': 7,
       'originalPrice': 1080,
       'discountedPrice': 380,
     },
     {
       'testName': 'Pup 103',
-      'description': "The CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet",
+      'description':
+          "The CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood.",
       'parameters': 3,
       'originalPrice': 1120,
       'discountedPrice': 220,
     },
     {
       'testName': 'Pup 104',
-      'description': "A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet.",
+      'description':
+          "A CBC for dogs identifies and quantifies white blood cells, red blood cells and platelets in a given amount of blood. This includes analyzing the condition of the pet.",
       'parameters': 4,
       'originalPrice': 1080,
       'discountedPrice': 380,
@@ -53,7 +57,7 @@ class _LabTestState extends State<LabTest> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: SizedBox(
-            height: 210, // fixed height for the ListView
+            height: MediaQuery.of(context).size.width * 0.6,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: labTests.length,

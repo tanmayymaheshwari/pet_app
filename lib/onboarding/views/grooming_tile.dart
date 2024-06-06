@@ -26,7 +26,7 @@ class GroomingTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 12, top: 10, bottom: 12),
       child: Container(
-        width: 320,
+        width: MediaQuery.of(context).size.width * 0.9,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [

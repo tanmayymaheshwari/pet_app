@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 import 'package:pet_app/onboarding/views/service_tile.dart';
+import 'package:pet_app/pet_shop/views/home_pet_shop.dart';
+import 'package:pet_app/treatment/views/home_treatment.dart';
 
 class SelectAService extends StatelessWidget {
-  final Callback onLabTestTap;
-  final Callback onTreatmentTap;
-  const SelectAService(
-      {super.key, required this.onLabTestTap, required this.onTreatmentTap});
+  const SelectAService({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,34 +25,68 @@ class SelectAService extends StatelessWidget {
         Row(
           children: [
             Expanded(
-                child: ServiceTile(
-              name: "Grooming",
-              imgUrl: "assets/grooming_icon.png",
-              onTileTap: () {},
-            )),
+              child: ServiceTile(
+                name: "Grooming",
+                imgUrl: "assets/grooming_icon.png",
+                onTileTap: () {}, // remove this and enable below
+                // onTileTap: () {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const Grooming(),
+                //     ),
+                //   );
+                // },
+              ),
+            ),
             Expanded(
-                child: ServiceTile(
-              name: "Pet Shop",
-              imgUrl: "assets/pet_shop_icon.png",
-              onTileTap: () {},
-            )),
+              child: ServiceTile(
+                name: "Pet Shop",
+                imgUrl: "assets/pet_shop_icon.png",
+                onTileTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PetShop(),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 20),
         Row(
           children: [
             Expanded(
-                child: ServiceTile(
-              name: "Treatment",
-              imgUrl: "assets/treatment_icon.png",
-              onTileTap: onTreatmentTap,
-            )),
+              child: ServiceTile(
+                name: "Treatment",
+                imgUrl: "assets/treatment_icon.png",
+                onTileTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Treatment(),
+                    ),
+                  );
+                },
+              ),
+            ),
             Expanded(
-                child: ServiceTile(
-              name: "Lab Test",
-              imgUrl: "assets/lab_test_icon.png",
-              onTileTap: onLabTestTap,
-            )),
+              child: ServiceTile(
+                name: "Lab Test",
+                imgUrl: "assets/lab_test_icon.png",
+                onTileTap: () {}, // remove this and enable below
+                // onTileTap: () {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const LabTest(),
+                //     ),
+                //   );
+                // },
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 20),

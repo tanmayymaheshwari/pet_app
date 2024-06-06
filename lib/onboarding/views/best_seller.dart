@@ -5,8 +5,16 @@ class BestSeller extends StatelessWidget {
   const BestSeller({Key? key});
 
   final List<Map<String, dynamic>> bestSellers = const [
-    {"name": "RC Kitten", "imgUrl": "assets/best_seller_1.png", "price": 120.99},
-    {"name": "Cat Fish Food", "imgUrl": "assets/best_seller_2.png", "price": 18.99},
+    {
+      "name": "RC Kitten",
+      "imgUrl": "assets/best_seller_1.png",
+      "price": 120.99
+    },
+    {
+      "name": "Cat Fish Food",
+      "imgUrl": "assets/best_seller_2.png",
+      "price": 18.99
+    },
     {"name": "RC Kitten", "imgUrl": "assets/best_seller_1.png", "price": 20.99},
     {"name": "RC Kitten", "imgUrl": "assets/best_seller_2.png", "price": 18.99},
   ];
@@ -46,7 +54,7 @@ class BestSeller extends StatelessWidget {
 
         // Bestseller Item Display
         SizedBox(
-          height: 200, // adjust height according to your needs
+          height: MediaQuery.of(context).size.width * 0.54,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 10, bottom: 4),
