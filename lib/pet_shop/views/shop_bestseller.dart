@@ -12,6 +12,7 @@ class ShopBestseller extends StatelessWidget {
       'price': 180,
       'rating': 4.5,
       'reviewCount': 67,
+      'highlights': ["Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1"]
     },
     {
       'imgUrl': 'assets/best_seller_product.jpg',
@@ -20,6 +21,7 @@ class ShopBestseller extends StatelessWidget {
       'price': 180,
       'rating': 4.5,
       'reviewCount': 67,
+      'highlights': ["Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1"]
     },
     {
       'imgUrl': 'assets/best_seller_product.jpg',
@@ -28,6 +30,7 @@ class ShopBestseller extends StatelessWidget {
       'price': 180,
       'rating': 4.5,
       'reviewCount': 67,
+      'highlights': ["Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1"]
     },
     {
       'imgUrl': 'assets/best_seller_product.jpg',
@@ -36,6 +39,7 @@ class ShopBestseller extends StatelessWidget {
       'price': 180,
       'rating': 4.5,
       'reviewCount': 67,
+      'highlights': ["Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1","Highlight 1"]
     },
   ];
 
@@ -78,6 +82,7 @@ class ShopBestseller extends StatelessWidget {
                       price: item['price'],
                       rating: item['rating'],
                       reviewCount: item['reviewCount'],
+                      highlights: item['highlights'],
                     ),
                     Container(
                       color: const Color.fromRGBO(255, 248, 247, 1),

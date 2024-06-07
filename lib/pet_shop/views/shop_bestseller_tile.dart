@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_app/product_details/views/home_product_details.dart';
 
 class ShopBestsellerTile extends StatelessWidget {
   final String imgUrl;
@@ -8,6 +9,7 @@ class ShopBestsellerTile extends StatelessWidget {
   final int price;
   final double rating;
   final int reviewCount;
+  final List<String> highlights;
 
   const ShopBestsellerTile({
     super.key,
@@ -17,6 +19,7 @@ class ShopBestsellerTile extends StatelessWidget {
     required this.price,
     required this.rating,
     required this.reviewCount,
+    required this.highlights,
   });
 
   @override
@@ -25,7 +28,6 @@ class ShopBestsellerTile extends StatelessWidget {
       padding: const EdgeInsets.only(left: 12, right: 12),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
@@ -35,10 +37,28 @@ class ShopBestsellerTile extends StatelessWidget {
           child: Row(
             children: [
               // Item Photo
-              SizedBox(
-                height: 100,
-                width: 80,
-                child: Image.asset(imgUrl, fit: BoxFit.cover),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductDetails(
+                        prodImgUrl: imgUrl,
+                        prodName: itemName,
+                        prodDesc: itemDescription,
+                        prodRating: rating,
+                        prodReviews: reviewCount,
+                        prodPrice: price,
+                        prodHighlights: highlights,
+                      ),
+                    ),
+                  );
+                },
+                child: SizedBox(
+                  height: 120,
+                  width: 90,
+                  child: Image.asset(imgUrl, fit: BoxFit.cover),
+                ),
               ),
               const SizedBox(width: 12),
               Expanded(
